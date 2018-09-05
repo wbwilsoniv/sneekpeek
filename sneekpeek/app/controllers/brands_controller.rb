@@ -16,6 +16,7 @@ class BrandsController < ApplicationController
     end
 
     def update
+        @brand = Brand.find(params[:id])
         if @brand.update(brand_params)
             render json: @brand
         else
@@ -24,7 +25,9 @@ class BrandsController < ApplicationController
     end
 
     def destroy
+        @brand = Brand.find(params[:id])
         @brand.destroy
+        render json: { message: "Brand Destroyed" }
     end
 
     private
