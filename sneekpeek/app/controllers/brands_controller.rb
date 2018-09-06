@@ -12,7 +12,7 @@ class BrandsController < ApplicationController
     
     def create
         @brand = Brand.create!(brand_params)
-        render json: { brand: @new_brand }
+        render json: { brand: @brand }
     end
 
     def update
