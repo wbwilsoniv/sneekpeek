@@ -16,10 +16,27 @@ class SneakersController < ApplicationController
         # brand = Brand.find(params[:brand_id])
         # brand.sneakers.create!(sneak_params)
         
-        @sneakers = Sneaker.create(sneak_params)
-        render json: { sneaker: @sneakers }
+        @sneaker = Sneaker.create(sneak_params)
+        render json: { sneaker: @sneaker }
     end
 
+    # sneaker.errors? status: :unprocessable_entity? 
+    def update
+        @sneaker = Sneaker.find(params[:id])
+        if @sneaker.update(sneak_params)
+            render json: @sneaker
+        else
+            render json: @sneaker.errors, status: :unprocessable_entity
+        end
+    end
+
+    # return list of all sneakers after destruction?
+    def destroy
+        @sneaker = Sneaker.find(params[:id])
+        @sneaker.destroy
+        render json: { message: "Sneaker Destroyed" }
+    end
+    
     private
 
     def sneak_params
