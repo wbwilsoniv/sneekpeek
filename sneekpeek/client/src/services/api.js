@@ -16,3 +16,15 @@ export function fetchOneSneaker(id) {
             throw Error(err);
         });
 };
+
+export function saveSneaker(sneaker) {
+    const opts = {
+        method: 'POST',
+        body: JSON.stringify(sneaker),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+      return fetch(`${BASE_URL}/sneakers`, opts)
+        .then(resp => resp.json());
+};
