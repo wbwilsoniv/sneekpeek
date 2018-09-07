@@ -5,7 +5,7 @@ class SneakerIndex extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            sneakers: []
+            sneakers: [],
         }
     }
 
