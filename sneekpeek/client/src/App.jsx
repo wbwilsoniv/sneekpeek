@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { fetchSneakers, fetchOneSneaker } from './services/api';
+// import { fetchSneakers, fetchOneSneaker } from './services/api';
+import SneakerIndex from './components/SneakerIndex';
 import './App.css';
 
 class App extends Component {
