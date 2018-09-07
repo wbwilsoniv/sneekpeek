@@ -22,7 +22,15 @@ class SneakerIndex extends Component {
     render() {
         return (
             <div className="sneakerIndexContainer">
-                <h2>Sneakers</h2>
+                {this.state.sneakers.map( sneaker => {
+                    return (
+                        <div className="single-sneaker" key={sneaker.id}>
+                            <h4>{sneaker.model}</h4>
+                            <p>{sneaker.price}</p>
+                            <p>{sneaker.release_date}</p>
+                        </div>
+                    )
+                })}
             </div>
         )
     }
