@@ -28,6 +28,7 @@ class SneakerIndex extends Component {
                             <h4>{sneaker.model}</h4>
                             <p>{sneaker.price}</p>
                             <p>{sneaker.release_date}</p>
+                            <hr />
                         </div>
                     )
                 })}

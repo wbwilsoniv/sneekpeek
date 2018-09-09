@@ -29,6 +29,7 @@ class BrandIndex extends Component {
                             <span>{brand.founded}</span>
                             <span>{brand.hq}</span>
                             <p>{brand.about}</p>
+                            <hr />
                         </div>
                     )
                 })}
