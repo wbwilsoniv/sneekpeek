@@ -70,7 +70,7 @@ class SneakerIndex extends Component {
                                     {/* <SneakerDetails sneaker={this.state.sneaker}/> */}
                                     <h4 className="sneakerBrand">{ this.renderBrand(sneaker.brand_id) }</h4>
                                     <h4 className="sneakerHeading">{sneaker.model}</h4>
-                                    <img className="sneakerPic" src={sneaker.img} alt="picture of sneaker" />
+                                    <img className="sneakerPic" src={sneaker.sneak_pic} alt="picture of sneaker" />
                                     <span className="sneakerPrice">Price: ${sneaker.price}</span>
                                     <span className="sneakerRelease">Release Date: {sneaker.release_date}</span>
                                     <span className="editBtn"><button type="button" >Edit Sneaker</button></span>
