@@ -12,7 +12,7 @@ class BrandIndex extends Component {
     componentDidMount() {
         axios.get('http://localhost:3001/brands.json')
         .then(resp => {
-            console.log(resp)
+            // console.log(resp)
             this.setState({
                 brands: resp.data
             })

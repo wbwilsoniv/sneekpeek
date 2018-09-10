@@ -69,7 +69,7 @@ class CreateSneaker extends Component {
                         name="brand_id"
                         onChange={this.handleChange}
                         required="required">
-                        <option value="" disabled selected hidden>Select Brand</option>
+                        <option value="default">Select Brand</option>
                         <option value="1">Adidas</option>
                         <option value="2">Jordan</option>
                         <option value="3">Nike</option>
