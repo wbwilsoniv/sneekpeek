@@ -10,7 +10,7 @@ class CreateSneaker extends Component {
             brand_id: ''
         }
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSneakSubmit = this.handleSneakSubmit.bind(this);
     }
 
     handleChange(evt) {
@@ -20,7 +20,7 @@ class CreateSneaker extends Component {
         });
     }
 
-    handleSubmit(evt) {
+    handleSneakSubmit(evt) {
         evt.preventDefault();
         this.props.onSubmit(this.state);
         this.setState({
@@ -33,7 +33,7 @@ class CreateSneaker extends Component {
     render() {
         return (
             <div className="createSneakerFormDiv">
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSneakSubmit}>
                     <label>Model:</label>
                     <input
                         type="text"

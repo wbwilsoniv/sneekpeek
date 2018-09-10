@@ -12,7 +12,7 @@ class EditSneaker extends Component {
       id: this.props.sneaker.id
     }
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSneakSubmit = this.handleSneakSubmit.bind(this);
     this.delete = this.delete.bind(this);
   }
   
@@ -31,17 +31,15 @@ class EditSneaker extends Component {
     });
   }
 
-  handleSubmit(evt) {
+  handleSneakSubmit(evt) {
     evt.preventDefault();
-    const data = {
-        name: this.state.title,
-        price: this.state.price,
-        release_date: this.state.release_date,
-        brand_id: this.state.brand_id,
-        id: this.state.id
-      }
-    this.props.onSubmit(data);
-    
+    this.props.onSubmit(this.state);
+    this.setState({
+        model: '',
+        price: '',
+        release_date: '',
+        brand_id: ''
+    })
   }
 
   delete(evt) {
@@ -54,7 +52,7 @@ class EditSneaker extends Component {
           <div>
               <div className="createSneakerFormDiv">
                 <h3>Edit Sneaker</h3>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSneakSubmit}>
                     <label>Model:</label>
                     <br />
                     <input

@@ -10,6 +10,8 @@ import Header from './components/Header';
 import axios from 'axios';
 // import ViewContainer from './components/ViewContainer';
 import SneakerDetails from './components/SneakerDetails';
+import EditSneaker from './components/EditSneaker';
+import NavButtons from './components/NavButtons';
 
 
 class App extends Component {
@@ -18,14 +20,17 @@ class App extends Component {
     this.state = {
       sneakers: [],
       brands: [],
+      sneaker: '',
       selectedSneaker: [{}],
-      sneakerSelected: false
+      sneakerToEdit: '',
+      currentView: ''
     }
     this.createSneaker = this.createSneaker.bind(this);
     this.updateSneaker = this.updateSneaker.bind(this);
     this.showSneaker = this.showSneaker.bind(this);
     this.deleteSneaker = this.deleteSneaker.bind(this);
     this.getSneaker = this.getSneaker.bind(this);
+    this.handleAddSneaker = this.handleAddSneaker.bind(this);
   }
 
   createSneaker(sneaker) {
@@ -48,12 +53,12 @@ class App extends Component {
     });
   }
   
-  selectSneaker(evt) {
-    console.log(evt.target);
-    // this.setState({
-    //   sneakerDetails: evt.target,
-    // });
+  handleAddSneaker() {
+    this.setState({
+      currentView: 'Add Form'
+    });
   }
+
   getSneaker(id) {
     axios.get(`http://localhost:3001/sneaker/${id}.json`)
     .then(resp => {
@@ -81,17 +86,69 @@ class App extends Component {
     })
   }
 
+  handleSneakClick(id) {
+    axios.get(`http://localhost:3001/sneaker/${id}.json`)
+    .then(resp => {
+      this.setState({ sneaker: resp.sneaker[0] });
+    });
+  }
+
+  handleEditSneaker(sneaker) {
+    this.setState({
+      sneakerToEdit: sneaker,
+      model: sneaker.model,
+      price: sneaker.price,
+      release_date: sneaker.release_date,
+      brand_id: sneaker.brand_id
+    });
+  }
+
+  viewController() {
+    const { currentView } = this.state;
+    switch (currentView) {
+      case 'Sneaker Index':
+        return <SneakerIndex sneakers={this.state.sneakers} />
+      break;
+      case 'Brand Index':
+        return <BrandIndex brands={this.state.brands} />
+      break;
+      case 'Add New':
+        return <CreateSneaker
+          model={this.state.model}
+          price={this.state.price}
+          release_date={this.state.release_date}
+          brand_id={this.state.brand_id} 
+          handleSneakSubmit={this.handleSneakSubmit}
+          handleChange={this.handleChange}/>
+        break;
+      case 'Edit':
+        return <EditSneaker
+          model={this.state.model}
+          price={this.state.price}
+          release_date={this.state.release_date}
+          brand_id={this.state.brand_id} 
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}/>
+        break;
+      default:
+        return null;
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
+        <NavButtons handleAddSneaker={this.handleAddSneaker}/>
+        <button onClick={this.handleAddSneaker}>Add New</button>
         <BrandIndex brands={this.state.brands}/>
       {/* <EditSneaker sneaker={this.state.selectedSneaker} onSubmit={this.updateSneaker}/> */}
         {/* <ViewContainer sneakerSelected={this.state.sneakerSelected} /> */}
-      <SneakerIndex sneakers={this.sneakers} />
+      <SneakerIndex sneakers={this.sneakers} handleSneakClick={this.handleSneakClick}/>
       <CreateSneaker onSubmit={this.createSneaker} />
       <SneakerDetails sneaker={this.state.selectedSneaker} />
       {/* <SneakerDetails sneaker={this.state.sneakerDetails} /> */}
+      {this.viewController()}
       </div>
     );
   }

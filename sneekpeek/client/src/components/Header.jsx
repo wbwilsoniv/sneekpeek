@@ -1,12 +1,12 @@
 import React from 'react';
-import NavButtons from './NavButtons';
 
 function Header(props) {
     return (
         <div className="header">
-            HEADING
+            <img src="" alt="SneekPeek Log" />
             <br />
-            <NavButtons />
+            <h1>SneekPeek</h1>
+            <br />
         </div>
     )
 }
