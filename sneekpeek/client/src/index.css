@@ -32,6 +32,7 @@ body {
   background-color: rgb(125,197,173);
   grid-area: navBtnDiv;
   padding-bottom: 10px;
+  box-shadow: 3px 3px 1px rgba(14, 14, 14, 0.1);
 
 }
 
@@ -58,39 +59,40 @@ body {
 }
 
 .single-sneaker {
-  height: 200px;
   margin: auto;
   display: grid;
-  grid-template-areas: 'sneakerBrand sneakerHeading .' 'sneakerPic sneakerPrice sneakerRelease' 'editBtn . deleteBtn';
-  grid-template-columns: 200px auto auto;
-  grid-template-rows: 40px 100px 40px;
-
+  grid-template-areas: 'sneakerPic sneakerPic sneakerBrand sneakerHeading ' 'sneakerPic sneakerPic sneakerRelease sneakerPrice' 'sneakerPic sneakerPic editBtn deleteBtn';
+  grid-template-columns: 175px 175px 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  padding-bottom: 10px;
+  box-shadow: 3px 3px 1px rgba(14, 14, 14, 0.1);
 }
 
 .sneakerBrand {
   grid-area: sneakerBrand;
-  justify-self: center;
+  justify-self: start;
 }
 
 .sneakerHeading {
   grid-area: sneakerHeading;
-  justify-self: center;
+  justify-self: start;
 }
 
 .sneakerPic {
+  padding-top: 10px;
   grid-area: sneakerPic;
   align-self: center;
 }
 
 .sneakerPrice {
   grid-area: sneakerPrice;
-  justify-self: center;
+  justify-self: start;
   padding: 10px;
 }
 
 .sneakerRelease {
   grid-area: sneakerRelease;
-  justify-self: center;
+  justify-self: start;
   padding: 10px;
 }
 
