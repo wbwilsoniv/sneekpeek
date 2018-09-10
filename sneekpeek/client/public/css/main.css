@@ -16,3 +16,15 @@
     margin: auto;
 
 }
+
+.sneakerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+
+.single-sneaker {
+    height: 200px;
+    margin: auto;
+}
