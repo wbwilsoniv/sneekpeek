@@ -53,17 +53,27 @@ class SneakerIndex extends Component {
                             return (
                                 <div className="single-sneaker"  key={sneaker.id}>
                                     {/* <SneakerDetails sneaker={this.state.sneaker}/> */}
-                                    <br />
-                                    <h4 className="sneakerBrand">{sneaker.brand_id}</h4>
+                                    <h4 className="sneakerBrand">
+                                    { () => {switch (sneaker.brand_id){
+                                        case 1:
+                                        return (<p>Adidas</p>)
+                                        break;
+                                        case 2:
+                                        return (<p>Jordan</p>)
+                                        break;
+                                        case 3:
+                                        return (<p>Nike</p>)
+                                        break;
+                                        default:
+                                        return null; 
+                                    }
+                                }}</h4>
                                     <h4 className="sneakerHeading">{sneaker.model}</h4>
-                                    <br />
                                     <img className="sneakerPic" src={sneaker.img} alt="picture of sneaker" />
-                                    <span className="sneakerPrice">{sneaker.price}</span>
-                                    <span className="sneakerRelease">{sneaker.release_date}</span>
-                                    <button type="button" className="editBtn">Edit Sneaker</button>
-                                    <span />
-                                    <button type="button"className="deleteBtn">Delete Sneaker</button>
-                                    <hr />
+                                    <span className="sneakerPrice">Price: ${sneaker.price}</span>
+                                    <span className="sneakerRelease">Release Date: {sneaker.release_date}</span>
+                                    <span className="editBtn"><button type="button" >Edit Sneaker</button></span>
+                                    <span className="deleteBtn"><button type="button">Delete Sneaker</button></span>
                                 </div>
                             )
                         })}

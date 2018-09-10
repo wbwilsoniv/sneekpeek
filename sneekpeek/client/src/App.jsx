@@ -141,11 +141,11 @@ class App extends Component {
         <Header />
         <NavButtons handleAddSneaker={this.handleAddSneaker}/>
         <button onClick={this.handleAddSneaker}>Add New</button>
-        <BrandIndex brands={this.state.brands}/>
       {/* <EditSneaker sneaker={this.state.selectedSneaker} onSubmit={this.updateSneaker}/> */}
         {/* <ViewContainer sneakerSelected={this.state.sneakerSelected} /> */}
       <SneakerIndex sneakers={this.sneakers} handleSneakClick={this.handleSneakClick}/>
       <CreateSneaker onSubmit={this.createSneaker} />
+      <BrandIndex brands={this.state.brands}/>
       <SneakerDetails sneaker={this.state.selectedSneaker} />
       {/* <SneakerDetails sneaker={this.state.sneakerDetails} /> */}
       {this.viewController()}

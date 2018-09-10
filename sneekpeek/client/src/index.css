@@ -31,12 +31,13 @@ body {
   justify-content: space-evenly;
   background-color: rgb(125,197,173);
   grid-area: navBtnDiv;
+  padding-bottom: 10px;
 
 }
 
-.navBtnDiv.button {
-  width: 100px;
-  height: 100px;
+.navBtnDiv button {
+  /* width: 100px;
+  height: 100px; */
   margin: auto;
 
 }
@@ -60,7 +61,9 @@ body {
   height: 200px;
   margin: auto;
   display: grid;
-  grid-template-areas: 'sneakerBrand sneakerHeading sneakerHeading' 'sneakerPic sneakerPrice sneakerRelease' 'editBtn span deleteBtn';
+  grid-template-areas: 'sneakerBrand . sneakerHeading' 'sneakerPic sneakerPrice sneakerRelease' 'editBtn . deleteBtn';
+  grid-template-columns: 200px auto auto;
+  grid-template-rows: 40px auto 40px;
 
 }
 
@@ -74,21 +77,42 @@ body {
 
 .sneakerPic {
   grid-area: sneakerPic;
+  justify-self: start;
 }
 
 .sneakerPrice {
   grid-area: sneakerPrice;
+  justify-self: center;
+  padding: 10px;
 }
 
 .sneakerRelease {
   grid-area: sneakerRelease;
+  justify-self: center;
+  padding: 10px;
 }
 
 .editBtn {
   grid-area: editBtn;
+  max-width: 75px;
+  padding: 10px;
+}
+
+.editBtn button {
+  margin: auto;
+  border-radius: 3px;
 }
 
 .deleteBtn {
   grid-area: deleteBtn;
+  max-width: 75px;
+  padding: 10px;
 }
+
+.deleteBtn button {
+  margin: auto;
+  border-radius: 3px;
+}
+
+
 
