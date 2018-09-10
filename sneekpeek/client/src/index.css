@@ -61,9 +61,9 @@ body {
   height: 200px;
   margin: auto;
   display: grid;
-  grid-template-areas: 'sneakerBrand . sneakerHeading' 'sneakerPic sneakerPrice sneakerRelease' 'editBtn . deleteBtn';
+  grid-template-areas: 'sneakerBrand sneakerHeading .' 'sneakerPic sneakerPrice sneakerRelease' 'editBtn . deleteBtn';
   grid-template-columns: 200px auto auto;
-  grid-template-rows: 40px auto 40px;
+  grid-template-rows: 40px 100px 40px;
 
 }
 
@@ -77,7 +77,7 @@ body {
 
 .sneakerPic {
   grid-area: sneakerPic;
-  justify-self: start;
+  align-self: center;
 }
 
 .sneakerPrice {

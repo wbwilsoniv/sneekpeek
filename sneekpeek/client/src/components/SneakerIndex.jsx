@@ -37,6 +37,21 @@ class SneakerIndex extends Component {
     //         })
     //         .catch(err => console.log(err))
     //       }
+    renderBrand(brand_id) {
+        switch(brand_id) {
+            case 1:
+            return (<h4>Adidas</h4>)
+            break;
+            case 2:
+            return (<h4>Jordan</h4>)
+            break;
+            case 3:
+            return (<h4>Nike</h4>)
+            break;
+            default:
+            return null;  
+        }
+    }
 
     render() {
         // const sneakerSelected = this.state.sneakerSelected;
@@ -53,21 +68,7 @@ class SneakerIndex extends Component {
                             return (
                                 <div className="single-sneaker"  key={sneaker.id}>
                                     {/* <SneakerDetails sneaker={this.state.sneaker}/> */}
-                                    <h4 className="sneakerBrand">
-                                    { () => {switch (sneaker.brand_id){
-                                        case 1:
-                                        return (<p>Adidas</p>)
-                                        break;
-                                        case 2:
-                                        return (<p>Jordan</p>)
-                                        break;
-                                        case 3:
-                                        return (<p>Nike</p>)
-                                        break;
-                                        default:
-                                        return null; 
-                                    }
-                                }}</h4>
+                                    <h4 className="sneakerBrand">{ this.renderBrand(sneaker.brand_id) }</h4>
                                     <h4 className="sneakerHeading">{sneaker.model}</h4>
                                     <img className="sneakerPic" src={sneaker.img} alt="picture of sneaker" />
                                     <span className="sneakerPrice">Price: ${sneaker.price}</span>

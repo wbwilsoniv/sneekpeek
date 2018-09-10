@@ -34,7 +34,7 @@ Brand.create!([
 
 Sneaker.create([
     { 
-    model: "Ultra Boost", 
+    model: "Ultra Boost Mid", 
     price: 185, 
     release_date: "10/9/18",
     brand_id: 1 
@@ -44,7 +44,7 @@ Sneaker.create([
     release_date: "11/17/18",
     brand_id: 1
     }, {
-    model: 'XII Playoffs',
+    model: 'XII',
     price: 190,
     release_date: "9/20/18",
     brand_id: 2  
@@ -54,7 +54,7 @@ Sneaker.create([
     release_date: "9/27/18",
     brand_id: 2
     }, {
-    model: 'Air Max 270',
+    model: 'Air Max 97',
     price: 120,
     release_date: "10/20/18",
     brand_id: 3
