@@ -40,13 +40,13 @@ class SneakerIndex extends Component {
     renderBrand(brand_id) {
         switch(brand_id) {
             case 1:
-            return (<h4>Adidas</h4>)
+            return ('Adidas')
             break;
             case 2:
-            return (<h4>Jordan</h4>)
+            return ('Jordan')
             break;
             case 3:
-            return (<h4>Nike</h4>)
+            return ('Nike')
             break;
             default:
             return null;  

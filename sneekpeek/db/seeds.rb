@@ -7,10 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Brand.create!([ 
-    { name: "Adidas",
+    { 
+    name: "Adidas",
     about: "Adidas AG is a multinational corporation that designs and manufactures shoes, clothing and accessories.",
     founded: 1948,
-    hq: "Herzogenaurach, Germany"}
+    hq: "Herzogenaurach, Germany",
+    pic_url: "https://user-images.githubusercontent.com/38361826/45305241-d8a5f500-b4e7-11e8-8d3b-d4e419f461c5.jpg"
+    }
 ])
 
 Brand.create!([
@@ -18,7 +21,8 @@ Brand.create!([
     name: "Jordan",
     about: "Air Jordan is a brand of basketball shoes and athletic clothing produced by Nike",
     founded: 1984,
-    hq: "Beaverton, Oregon"
+    hq: "Beaverton, Oregon",
+    pic_url: "https://images-na.ssl-images-amazon.com/images/I/61t%2BNvmBhUL._SX425_.jpg"
     }
 ])
 
@@ -27,7 +31,8 @@ Brand.create!([
     name: "Nike",
     about: "American multinational corporation that is engaged in the design, development, manufacturing, and worldwide marketing and sales of footwear, apparel, equipment, accessories, and services.",
     founded: 1971,
-    hq: "Beaverton, Oregon"
+    hq: "Beaverton, Oregon",
+    pic_url: "https://user-images.githubusercontent.com/38361826/45305262-e2c7f380-b4e7-11e8-925b-64219bf6b1b1.jpg"
     }
 ])
 

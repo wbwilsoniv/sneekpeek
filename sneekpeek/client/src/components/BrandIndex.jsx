@@ -26,6 +26,7 @@ class BrandIndex extends Component {
                     return (
                         <div className="single-brand" key={brand.id}>
                             <h4>{brand.name}</h4>
+                            <img src={brand.pic_url} className="brandLogo" />
                             <span>{brand.founded}</span>
                             <span>{brand.hq}</span>
                             <p>{brand.about}</p>

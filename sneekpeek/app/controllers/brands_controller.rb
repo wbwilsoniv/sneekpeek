@@ -33,6 +33,6 @@ class BrandsController < ApplicationController
     private
     
     def brand_params
-        params.permit(:name, :about, :founded, :hq)
+        params.permit(:name, :about, :founded, :hq, :pic_url)
     end
 end

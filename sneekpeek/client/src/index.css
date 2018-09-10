@@ -69,10 +69,12 @@ body {
 
 .sneakerBrand {
   grid-area: sneakerBrand;
+  justify-self: center;
 }
 
 .sneakerHeading {
   grid-area: sneakerHeading;
+  justify-self: center;
 }
 
 .sneakerPic {
