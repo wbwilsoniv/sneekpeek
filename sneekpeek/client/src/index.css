@@ -18,8 +18,13 @@ body {
   grid-area: header;
   background-color: rgb(125,197,173);
   font-weight: 800;
+  display: fixed;
 }
 
+.header img {
+  height: 150px;
+  width: auto;
+}
 
 .navBtnDiv {
   display: flex;
@@ -54,5 +59,36 @@ body {
 .single-sneaker {
   height: 200px;
   margin: auto;
+  display: grid;
+  grid-template-areas: 'sneakerBrand sneakerHeading sneakerHeading' 'sneakerPic sneakerPrice sneakerRelease' 'editBtn span deleteBtn';
+
+}
+
+.sneakerBrand {
+  grid-area: sneakerBrand;
+}
+
+.sneakerHeading {
+  grid-area: sneakerHeading;
+}
+
+.sneakerPic {
+  grid-area: sneakerPic;
+}
+
+.sneakerPrice {
+  grid-area: sneakerPrice;
+}
+
+.sneakerRelease {
+  grid-area: sneakerRelease;
+}
+
+.editBtn {
+  grid-area: editBtn;
+}
+
+.deleteBtn {
+  grid-area: deleteBtn;
 }
 

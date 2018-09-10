@@ -37,17 +37,6 @@ class SneakerIndex extends Component {
     //         })
     //         .catch(err => console.log(err))
     //       }
-    setSneaker(sneaker) {
-        this.setState({
-            selectedSneaker: sneaker
-        })
-    }
-    showSneaker(sneaker) {
-        this.setState({
-          selectedSneaker: sneaker
-        })
-        console.log(sneaker)
-      }
 
     render() {
         // const sneakerSelected = this.state.sneakerSelected;
@@ -65,11 +54,15 @@ class SneakerIndex extends Component {
                                 <div className="single-sneaker"  key={sneaker.id}>
                                     {/* <SneakerDetails sneaker={this.state.sneaker}/> */}
                                     <br />
+                                    <h4 className="sneakerBrand">{sneaker.brand_id}</h4>
                                     <h4 className="sneakerHeading">{sneaker.model}</h4>
                                     <br />
-                                    <span>{sneaker.price}</span>
-                                    <span>{sneaker.release_date}</span>
-                                    <button type="button" value={sneaker} onClick={this.props.setSneaker}>Show Details</button>
+                                    <img className="sneakerPic" src={sneaker.img} alt="picture of sneaker" />
+                                    <span className="sneakerPrice">{sneaker.price}</span>
+                                    <span className="sneakerRelease">{sneaker.release_date}</span>
+                                    <button type="button" className="editBtn">Edit Sneaker</button>
+                                    <span />
+                                    <button type="button"className="deleteBtn">Delete Sneaker</button>
                                     <hr />
                                 </div>
                             )
