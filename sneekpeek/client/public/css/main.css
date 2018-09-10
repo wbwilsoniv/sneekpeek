@@ -1,0 +1,18 @@
+/* Lay-out Elements */
+
+
+
+/* Components  */
+
+.navBtnDiv {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.navBtnDiv.button {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+
+}
