@@ -55,12 +55,7 @@ class App extends Component {
     });
   }
   
-  handleAddSneaker() {
-    this.setState({
-      currentView: 'Add Form'
-    });
-  }
-
+  
   getSneaker(id) {
     axios.get(`http://localhost:3001/sneaker/${id}.json`)
     .then(resp => {
@@ -73,28 +68,28 @@ class App extends Component {
   }
   deleteSneaker(id) {
     deleteSneaker(id)
-      .then(data => {
-        fetchSneakers()
-          .then(data => this.setState({
-            sneakers: data,
-            brands: [],
-            sneakerDetails: [{}],
-          }));
-      });
+    .then(data => {
+      fetchSneakers()
+      .then(data => this.setState({
+        sneakers: data,
+        brands: [],
+        sneakerDetails: [{}],
+      }));
+    });
   }
   showSneaker(sneaker) {
     this.setState({
       selectedSneaker: sneaker
     })
   }
-
+  
   handleSneakClick(id) {
     axios.get(`http://localhost:3001/sneaker/${id}.json`)
     .then(resp => {
       this.setState({ sneaker: resp.sneaker[0] });
     });
   }
-
+  
   handleEditSneaker(sneaker) {
     this.setState({
       sneakerToEdit: sneaker,
@@ -105,19 +100,24 @@ class App extends Component {
       sneak_pic: sneaker.sneak_pic
     });
   }
-
+  
   handleSneakersClick() {
     this.setState({
       currentView: 'Sneaker Index'
     });
   }
-
+  
   handleBrandClick() {
     this.setState({
       currentView: 'Brand Index'
     });
   }
-
+  
+  handleAddSneaker() {
+    this.setState({
+      currentView: 'Add New'
+    });
+  }
   viewController() {
     const { currentView } = this.state;
     switch (currentView) {
@@ -158,6 +158,7 @@ class App extends Component {
         <NavButtons handleAddSneaker={this.handleAddSneaker}/>
         <button onClick={this.handleSneakersClick}>Sneakers</button>
         <button onClick={this.handleBrandClick}>Show Brands</button>
+        <button onClick={this.handleAddSneaker}>Add Sneaker</button>
         {/* <button onClick={this.handleAddSneaker}>Add New</button>
       <EditSneaker sneaker={this.state.selectedSneaker} onSubmit={this.updateSneaker}/> */}
         {/* <ViewContainer sneakerSelected={this.state.sneakerSelected} /> */}
