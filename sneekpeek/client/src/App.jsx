@@ -31,6 +31,8 @@ class App extends Component {
     this.deleteSneaker = this.deleteSneaker.bind(this);
     this.getSneaker = this.getSneaker.bind(this);
     this.handleAddSneaker = this.handleAddSneaker.bind(this);
+    this.handleBrandClick = this.handleBrandClick.bind(this);
+    this.handleSneakersClick = this.handleSneakersClick.bind(this);
   }
 
   createSneaker(sneaker) {
@@ -99,7 +101,20 @@ class App extends Component {
       model: sneaker.model,
       price: sneaker.price,
       release_date: sneaker.release_date,
-      brand_id: sneaker.brand_id
+      brand_id: sneaker.brand_id,
+      sneak_pic: sneaker.sneak_pic
+    });
+  }
+
+  handleSneakersClick() {
+    this.setState({
+      currentView: 'Sneaker Index'
+    });
+  }
+
+  handleBrandClick() {
+    this.setState({
+      currentView: 'Brand Index'
     });
   }
 
@@ -118,6 +133,7 @@ class App extends Component {
           price={this.state.price}
           release_date={this.state.release_date}
           brand_id={this.state.brand_id} 
+          sneak_pic={this.state.sneak_pic}
           handleSneakSubmit={this.handleSneakSubmit}
           handleChange={this.handleChange}/>
         break;
@@ -131,7 +147,7 @@ class App extends Component {
           handleChange={this.handleChange}/>
         break;
       default:
-        return null;
+        return <SneakerIndex sneakers={this.state.sneakers} />;
     }
   }
 
@@ -140,13 +156,15 @@ class App extends Component {
       <div className="App">
         <Header />
         <NavButtons handleAddSneaker={this.handleAddSneaker}/>
-        <button onClick={this.handleAddSneaker}>Add New</button>
-      {/* <EditSneaker sneaker={this.state.selectedSneaker} onSubmit={this.updateSneaker}/> */}
+        <button onClick={this.handleSneakersClick}>Sneakers</button>
+        <button onClick={this.handleBrandClick}>Show Brands</button>
+        {/* <button onClick={this.handleAddSneaker}>Add New</button>
+      <EditSneaker sneaker={this.state.selectedSneaker} onSubmit={this.updateSneaker}/> */}
         {/* <ViewContainer sneakerSelected={this.state.sneakerSelected} /> */}
-      <SneakerIndex sneakers={this.sneakers} handleSneakClick={this.handleSneakClick}/>
+      {/* <SneakerIndex sneakers={this.sneakers} handleSneakClick={this.handleSneakClick}/>
       <CreateSneaker onSubmit={this.createSneaker} />
       <BrandIndex brands={this.state.brands}/>
-      <SneakerDetails sneaker={this.state.selectedSneaker} />
+      <SneakerDetails sneaker={this.state.selectedSneaker} /> */}
       {/* <SneakerDetails sneaker={this.state.sneakerDetails} /> */}
       {this.viewController()}
       </div>

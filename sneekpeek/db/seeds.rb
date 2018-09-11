@@ -51,7 +51,7 @@ Sneaker.create([
     brand_id: 1,
     sneak_pic: "https://s3.amazonaws.com/images.kicksfinder.com/products/thumbs/37130c9f0ca22d2f408153bfdbb21bea_1514306958.jpg"
     }, {
-    model: 'XII',
+    model: 'XII Red Octobers',
     price: 190,
     release_date: "9/20/18",
     brand_id: 2,

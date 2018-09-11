@@ -19,6 +19,7 @@ body {
   background-color: rgb(125,197,173);
   font-weight: 800;
   display: fixed;
+  box-shadow: 3px 3px 1px rgba(14, 14, 14, 0.1);
 }
 
 .header img {
@@ -62,10 +63,11 @@ body {
   margin: auto;
   display: grid;
   grid-template-areas: 'sneakerPic sneakerPic sneakerBrand sneakerHeading ' 'sneakerPic sneakerPic sneakerRelease sneakerPrice' 'sneakerPic sneakerPic editBtn deleteBtn';
-  grid-template-columns: 175px 175px 1fr 1fr;
+  grid-template-columns: 175px 175px 2fr 3fr;
   grid-template-rows: auto auto auto;
   padding-bottom: 10px;
-  box-shadow: 3px 3px 1px rgba(14, 14, 14, 0.1);
+  padding-right: 15px; 
+  box-shadow: 2px 2px 1px rgba(14, 14, 14, 0.1);
 }
 
 .sneakerBrand {
@@ -76,6 +78,7 @@ body {
 .sneakerHeading {
   grid-area: sneakerHeading;
   justify-self: start;
+  padding-left: 5px;
 }
 
 .sneakerPic {
