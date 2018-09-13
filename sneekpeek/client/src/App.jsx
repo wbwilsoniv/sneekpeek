@@ -33,6 +33,8 @@ class App extends Component {
     this.handleEdit = this.handleEdit.bind(this);
   }
   
+
+
   // Create sneaker function 
   createSneaker(sneaker) {
     saveSneaker(sneaker)
@@ -42,7 +44,7 @@ class App extends Component {
     })
   }
 
-
+  // Update Sneaker
   updateSneaker(sneaker) {
     updateSneaker(sneaker)
     .then(data => {
@@ -56,17 +58,18 @@ class App extends Component {
     });
   }
   
-  
+  // Get Sneaker function
   getSneaker(id) {
     axios.get(`http://localhost:3001/sneakers/${id}.json`)
     .then(data => {
       this.setState({
-        selectedSneaker: data
+        sneakerToEdit: data
       })
     })
     .catch(err => console.log(err))
   }
 
+  // Delete Sneaker function
   deleteSneaker(id) {
     deleteSneaker(id)
     .then(data => {
@@ -74,23 +77,23 @@ class App extends Component {
       .then(data => this.setState({
         sneakers: data,
         brands: [],
-        sneakerDetails: [{}],
       }));
     });
   }
   
   // WIP event handler for edit form
-  handleEditSneaker(sneaker) {
-    this.setState({
-      sneakerToEdit: sneaker,
-      model: sneaker.model,
-      price: sneaker.price,
-      release_date: sneaker.release_date,
-      brand_id: sneaker.brand_id,
-      sneak_pic: sneaker.sneak_pic
-    });
-  }
+  // handleEditSneaker(sneaker) {
+  //   this.setState({
+  //     sneakerToEdit: sneaker,
+  //     model: sneaker.model,
+  //     price: sneaker.price,
+  //     release_date: sneaker.release_date,
+  //     brand_id: sneaker.brand_id,
+  //     sneak_pic: sneaker.sneak_pic
+  //   });
+  // }
   
+  // Click handler to change current view to Sneakers
   handleSneakersClick() {
     this.setState({
       currentView: 'Sneaker Index'
@@ -162,15 +165,7 @@ class App extends Component {
         <button onClick={this.handleBrandClick}>Show Brands</button>
         <button onClick={this.handleAddSneaker}>Add Sneaker</button>
         <button onClick={this.handleEdit}>Edit</button>
-        {/* <SneakerDetails sneaker={this.state.sneakerToEdit} edit={this.getSneaker}/> */}
-        {/* <button onClick={this.handleAddSneaker}>Add New</button>
-      <EditSneaker sneaker={this.state.selectedSneaker} onSubmit={this.updateSneaker}/> */}
-        {/* <ViewContainer sneakerSelected={this.state.sneakerSelected} /> */}
-      {/* <SneakerIndex sneakers={this.sneakers} handleSneakClick={this.handleSneakClick}/>
-      <CreateSneaker onSubmit={this.createSneaker} />
-      <BrandIndex brands={this.state.brands}/>
-      <SneakerDetails sneaker={this.state.selectedSneaker} /> */}
-      {/* <SneakerDetails sneaker={this.state.sneakerDetails} /> */}
+        
       {this.viewController()}
       </div>
     );

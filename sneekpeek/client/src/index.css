@@ -62,22 +62,23 @@ body {
 .single-sneaker {
   margin: auto;
   display: grid;
-  grid-template-areas: 'sneakerPic sneakerPic sneakerBrand sneakerHeading ' 'sneakerPic sneakerPic sneakerRelease sneakerPrice' 'sneakerPic sneakerPic editBtn deleteBtn';
+  grid-template-areas: '. . sneakerBrand sneakerHeading''sneakerPic sneakerPic . . ' 'sneakerPic sneakerPic sneakerRelease sneakerPrice' 'sneakerPic sneakerPic editBtn deleteBtn';
   grid-template-columns: 175px 175px 2fr 3fr;
-  grid-template-rows: auto auto auto;
-  padding-bottom: 10px;
-  padding-right: 15px; 
+  grid-template-rows: auto auto auto auto;
+  padding: 20px 30px;
   box-shadow: 2px 2px 1px rgba(14, 14, 14, 0.1);
 }
 
 .sneakerBrand {
   grid-area: sneakerBrand;
   justify-self: start;
+  align-self: end;
 }
 
 .sneakerHeading {
   grid-area: sneakerHeading;
   justify-self: start;
+  align-self: end;
   padding-left: 5px;
 }
 
@@ -90,13 +91,17 @@ body {
 .sneakerPrice {
   grid-area: sneakerPrice;
   justify-self: start;
+  align-self: start;
   padding: 10px;
+  padding-bottom: 20px;
 }
 
 .sneakerRelease {
   grid-area: sneakerRelease;
   justify-self: start;
+  align-self: start;
   padding: 10px;
+  padding-bottom: 20px;
 }
 
 .editBtn {
