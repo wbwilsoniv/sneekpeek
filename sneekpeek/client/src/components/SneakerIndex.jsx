@@ -13,11 +13,9 @@ class SneakerIndex extends Component {
             release_date: '',
             sneak_pic: '',
             sneakerToEdit: {},
-            //selectedSneaker: [{}],
             sneakerSelected: false,
             view: '' 
         }
-        // this.getSneaker = this.getSneaker.bind(this);
         this.toggleSneakerSelected = this.toggleSneakerSelected.bind(this);
     }
     
@@ -32,8 +30,10 @@ class SneakerIndex extends Component {
         .catch(err => console.log(err))
     }
 
-    handleSneakerSelect
-
+   
+    // handles click and sets state for sneaker edit
+    // changes boolean value for sneakerSelected. to be used for conditional render.
+    // WIP currently sets last item in sneakers as sneaker to edit no matter what button is clicked.
     toggleSneakerSelected() {
         this.state.sneakers.filter(sneaker => 
             this.setState({
@@ -49,41 +49,8 @@ class SneakerIndex extends Component {
     // props.handle
         // 3 functions => fetch call for edit => change state (toggle editButton selectedSneaker) => (props.selectedsneaker) 
 
-    // getSneaker(sneaker) {
-    //         axios.get(`http://localhost:3001/sneakers/${sneaker.id}.json`)
-    //         .then(resp => {
-    //           console.log(resp)
-    //           this.setState({
-    //             Sneaker: resp.data
-    //           })
-    //         })
-    //         .catch(err => console.log(err))
-    //       }
-    
-    // currently makes nonstop requests!
-    
-    
-    
-    // getSneaker(id) {
-    //     if(sneakerToEdit.isEmpty) {
-    //     axios.get(`http://localhost:3001/sneakers/${id}.json`)
-    //         .then(resp => {
-    //             console.log(resp)
-    //           this.setState({
-    //             sneakerDetails: resp.data
-    //           })
-    //         })
-    //         .catch(err => console.log(err))
-    //     } 
-    // }
-
-    // handleEdit(id) {
-    //     this.setState({
-    //         sneaker: selectedSneaker
-    //     });
-    // }
-
-
+ 
+    // shows brand name instead of brand_id for sneaker
     renderBrand(brand_id) {
         switch(brand_id) {
             case 1:

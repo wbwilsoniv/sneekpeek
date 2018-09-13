@@ -20,8 +20,7 @@ class App extends Component {
       sneakers: [],
       brands: [],
       sneaker: '',
-      selectedSneaker: [{}],
-      sneakerToEdit: '',
+      sneakerToEdit: {},
       currentView: ''
     }
     this.createSneaker = this.createSneaker.bind(this);
@@ -33,7 +32,8 @@ class App extends Component {
     this.handleSneakersClick = this.handleSneakersClick.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
   }
-
+  
+  // Create sneaker function 
   createSneaker(sneaker) {
     saveSneaker(sneaker)
     .then(data => {
@@ -41,6 +41,8 @@ class App extends Component {
         .then(data => this.setState({ sneakers: data }));
     })
   }
+
+
   updateSneaker(sneaker) {
     updateSneaker(sneaker)
     .then(data => {
@@ -77,13 +79,7 @@ class App extends Component {
     });
   }
   
-  // handleSneakClick(id) {
-  //   axios.get(`http://localhost:3001/sneaker/${id}.json`)
-  //   .then(resp => {
-  //     this.setState({ sneaker: resp.sneaker[0] });
-  //   });
-  // }
-  
+  // WIP event handler for edit form
   handleEditSneaker(sneaker) {
     this.setState({
       sneakerToEdit: sneaker,
@@ -101,18 +97,21 @@ class App extends Component {
     });
   }
   
+  // Click handler to change current view to Brands
   handleBrandClick() {
     this.setState({
       currentView: 'Brand Index'
     });
   }
   
+  // click handler to change current view to Add New
   handleAddSneaker() {
     this.setState({
       currentView: 'Add New'
     });
   }
-
+  
+  // click handler to change current view to Edit
   handleEdit() {
     this.setState({
       currentView: 'Edit'
@@ -140,10 +139,12 @@ class App extends Component {
         break;
       case 'Edit':
         return <EditSneaker
-          model={this.state.sneaker.model}
+          sneaker={this.state.sneaker}
+          model={this.state.model}
           price={this.state.sneaker.price}
           release_date={this.state.sneaker.release_date}
           brand_id={this.state.sneaker.brand_id} 
+          handleEditSneaker={this.handleEditSneaker}
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}/>
         break;

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { fetchOneSneaker } from './../services/api';
 
 class EditSneaker extends Component {
   constructor(props) {
@@ -17,14 +16,6 @@ class EditSneaker extends Component {
     this.delete = this.delete.bind(this);
   }
   
-  getOneSneaker(sneaker) {
-    fetchOneSneaker(sneaker)
-      .then(data => {
-        this.setState({
-          selectedSneaker: data
-        });
-      })
-  }
   handleChange(evt) {
     const { name, value } = evt.target;
     this.setState({
