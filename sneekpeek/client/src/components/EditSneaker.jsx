@@ -9,6 +9,7 @@ class EditSneaker extends Component {
       price: this.props.sneaker.price,
       release_date: this.props.sneaker.release_date,
       brand_id: this.props.sneaker.brand_id,
+      sneak_pic: this.props.sneaker.sneak_pic,
       id: this.props.sneaker.id
     }
     this.handleChange = this.handleChange.bind(this);
@@ -38,7 +39,8 @@ class EditSneaker extends Component {
         model: '',
         price: '',
         release_date: '',
-        brand_id: ''
+        brand_id: '',
+        sneak_pic: ''
     })
   }
 
@@ -98,7 +100,15 @@ class EditSneaker extends Component {
                         <option value="3">Nike</option>
                     </select>
                     <br />
-                    <button type="submit" value="Edit Sneaker">Save Changes</button>
+                    <label>Pic</label>
+                    <input
+                        type="text"
+                        name="sneak_pic"
+                        value={this.state.sneak_pic}
+                        onChange={this.handleChange}
+                        placeholder="Image URL in this format http://yourImageURL.jpg"
+                        />
+                    <button type="submit" value="Save Sneaker">Save Changes</button>
                     <button onClick={this.delete} className="deletebtn">Delete</button>
                 </form>
             </div>

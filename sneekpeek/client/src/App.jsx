@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { fetchSneakers, saveSneaker, updateSneaker, deleteSneaker } from './services/api';
 import SneakerIndex from './components/SneakerIndex';
-// import SneakerDetails from './components/SneakerDetails';
 import BrandIndex from './components/BrandIndex';
 import './App.css';
 import CreateSneaker from './components/CreateSneaker';
@@ -27,12 +26,12 @@ class App extends Component {
     }
     this.createSneaker = this.createSneaker.bind(this);
     this.updateSneaker = this.updateSneaker.bind(this);
-    this.showSneaker = this.showSneaker.bind(this);
-    this.deleteSneaker = this.deleteSneaker.bind(this);
     this.getSneaker = this.getSneaker.bind(this);
+    this.deleteSneaker = this.deleteSneaker.bind(this);
     this.handleAddSneaker = this.handleAddSneaker.bind(this);
     this.handleBrandClick = this.handleBrandClick.bind(this);
     this.handleSneakersClick = this.handleSneakersClick.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   createSneaker(sneaker) {
@@ -57,15 +56,15 @@ class App extends Component {
   
   
   getSneaker(id) {
-    axios.get(`http://localhost:3001/sneaker/${id}.json`)
-    .then(resp => {
-      console.log(resp)
+    axios.get(`http://localhost:3001/sneakers/${id}.json`)
+    .then(data => {
       this.setState({
-        selectedSneaker: resp.data
+        selectedSneaker: data
       })
     })
     .catch(err => console.log(err))
   }
+
   deleteSneaker(id) {
     deleteSneaker(id)
     .then(data => {
@@ -77,18 +76,13 @@ class App extends Component {
       }));
     });
   }
-  showSneaker(sneaker) {
-    this.setState({
-      selectedSneaker: sneaker
-    })
-  }
   
-  handleSneakClick(id) {
-    axios.get(`http://localhost:3001/sneaker/${id}.json`)
-    .then(resp => {
-      this.setState({ sneaker: resp.sneaker[0] });
-    });
-  }
+  // handleSneakClick(id) {
+  //   axios.get(`http://localhost:3001/sneaker/${id}.json`)
+  //   .then(resp => {
+  //     this.setState({ sneaker: resp.sneaker[0] });
+  //   });
+  // }
   
   handleEditSneaker(sneaker) {
     this.setState({
@@ -118,6 +112,13 @@ class App extends Component {
       currentView: 'Add New'
     });
   }
+
+  handleEdit() {
+    this.setState({
+      currentView: 'Edit'
+    });
+  }
+
   viewController() {
     const { currentView } = this.state;
     switch (currentView) {
@@ -139,10 +140,10 @@ class App extends Component {
         break;
       case 'Edit':
         return <EditSneaker
-          model={this.state.model}
-          price={this.state.price}
-          release_date={this.state.release_date}
-          brand_id={this.state.brand_id} 
+          model={this.state.sneaker.model}
+          price={this.state.sneaker.price}
+          release_date={this.state.sneaker.release_date}
+          brand_id={this.state.sneaker.brand_id} 
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}/>
         break;
@@ -159,6 +160,8 @@ class App extends Component {
         <button onClick={this.handleSneakersClick}>Sneakers</button>
         <button onClick={this.handleBrandClick}>Show Brands</button>
         <button onClick={this.handleAddSneaker}>Add Sneaker</button>
+        <button onClick={this.handleEdit}>Edit</button>
+        {/* <SneakerDetails sneaker={this.state.sneakerToEdit} edit={this.getSneaker}/> */}
         {/* <button onClick={this.handleAddSneaker}>Add New</button>
       <EditSneaker sneaker={this.state.selectedSneaker} onSubmit={this.updateSneaker}/> */}
         {/* <ViewContainer sneakerSelected={this.state.sneakerSelected} /> */}
