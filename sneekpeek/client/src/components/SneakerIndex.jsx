@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import EditSneaker from './EditSneaker';
 import SneakerDetails from './SneakerDetails';
-import { fetchSneakers, updateSneaker } from './../services/api';
+import { fetchSneakers, updateSneaker, deleteSneaker } from './../services/api';
 
 
 class SneakerIndex extends Component {
@@ -15,6 +15,7 @@ class SneakerIndex extends Component {
         }
         this.toggleSneakerSelected = this.toggleSneakerSelected.bind(this);
         this.updateSneaker = this.updateSneaker.bind(this);
+        this.deleteSneaker = this.deleteSneaker.bind(this);
     }
     
       // gets all and sets state for Sneakers
@@ -54,6 +55,17 @@ class SneakerIndex extends Component {
             });
           }    
 
+    // Delete Sneaker function
+  deleteSneaker(id) {
+    deleteSneaker(id)
+    .then(data => {
+      fetchSneakers()
+      .then(data => this.setState({
+        sneakers: data,
+      }));
+    });
+  }
+
 
     // shows brand name instead of brand_id for sneaker
     renderBrand(brand_id) {
@@ -77,7 +89,7 @@ class SneakerIndex extends Component {
         let sneakerSelected = this.state.sneakerSelected;
         if(sneakerSelected === true) {
             return(
-                <EditSneaker sneaker={this.state.sneakerToEdit} onSubmit={this.updateSneaker} />
+                <EditSneaker sneaker={this.state.sneakerToEdit} onSubmit={this.updateSneaker} delete={this.deleteSneaker}/>
             )
         } else {
         return (

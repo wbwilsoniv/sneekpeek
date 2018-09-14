@@ -133,6 +133,7 @@ class App extends Component {
           release_date={this.state.release_date}
           brand_id={this.state.brand_id} 
           sneak_pic={this.state.sneak_pic}
+          onSubmit={this.createSneaker}
           handleSneakSubmit={this.handleSneakSubmit}
           handleChange={this.handleChange}/>
         break;
