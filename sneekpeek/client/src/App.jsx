@@ -158,12 +158,12 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <NavButtons handleAddSneaker={this.handleAddSneaker}/>
-        <button onClick={this.handleSneakersClick}>Sneakers</button>
-        <button onClick={this.handleBrandClick}>Show Brands</button>
-        <button onClick={this.handleAddSneaker}>Add Sneaker</button>
-        <button onClick={this.handleEdit}>Edit</button>
-        
+        {/* <NavButtons handleAddSneaker={this.handleAddSneaker}/> */}
+        <div className="navBtnDiv">
+          <button onClick={this.handleSneakersClick}>Sneakers</button>
+          <button onClick={this.handleBrandClick}>Show Brands</button>
+          <button onClick={this.handleAddSneaker}>Add Sneaker</button>
+        </div>
       {this.viewController()}
       </div>
     );

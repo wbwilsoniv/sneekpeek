@@ -103,7 +103,6 @@ class SneakerIndex extends Component {
                         <span className="sneakerPrice">${sneaker.price} (USD)</span>
                         <span className="sneakerRelease">Release Date: <br /> {sneaker.release_date}</span>
                         <span className="editBtn"><button type="button" value={sneaker.id} onClick={(e) => this.toggleSneakerSelected(e)}>Edit Sneaker</button></span>
-                        <span className="deleteBtn"><button type="button">Delete Sneaker</button></span>
                     </div>
                 )
             })}
