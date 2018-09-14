@@ -11,13 +11,14 @@ As a long-time sneaker afficionado, I wanted to create an app where I can keep t
 
 ## General Approach
 
-For this project, we decided that starting out with a basic ERD would be the easiest way to approach it. After drawing out an ERD and stating the relationships between the two tables, we broke our app into two components: An app directory with files to control the back-end and a client directory with files to control the front end. For our backend, we set up a seed file and schema file, where we hard-coded data into to build our database for testing. 
+
+For this project I started with creating ERDs for Sneakers and Brands. The back-end was then built using Ruby on Rails.
 
 From there we set about building up the app where we would define our models, controllers and routes for CRUD on both podcasts and reviews.
 
-For the client side, which will be our front-end we used create-react-app to create our Pass The Podcorn app. 
+For the client side,  the front-end I used react.js. 
 
-After creating both a functional front-end and back-end, we used CSS and Bulma to style and format our app.
+After creating both a functional front-end and back-end, I used CSS and Bulma to style and format our app.
 
 
 ## App Link
@@ -49,7 +50,7 @@ After creating both a functional front-end and back-end, we used CSS and Bulma t
 
 
 ## User Stories
-1. As a person who doesn't like to read stories, I would like to find and listen to people tell stories on podcasts.. 
+1. As a person who likes to buy sneakers, I would like to track sneaker release dates 
 1. As a user I want to see a list of reviews for a certain podcast of my choosing. 
 1. As a person with a long commute to work I would like to find new podcasts to listen to on the subway.
 1. As an avid podcast listener I would like to share my love for podcasts by writing reviews and sharing favorite moments from my favorite podcasts.
@@ -67,6 +68,7 @@ After creating both a functional front-end and back-end, we used CSS and Bulma t
 * Visual Studio Code
 * JSX
 * Ruby
+* Rails
 * Axios
 * Heroku
 * React
@@ -75,7 +77,9 @@ After creating both a functional front-end and back-end, we used CSS and Bulma t
 * Cors
 * Nodemon
 * PG-Promise
+* PSQL
 * Body-Parser
+* CSS-Grid 
 
  
 
@@ -83,19 +87,19 @@ After creating both a functional front-end and back-end, we used CSS and Bulma t
 List of sneakers default rendered. Click around!
 
 ## Unsolved Problems:
-1. User Authentication
+1. Redirects after update/delete/create
 
 
 ### Things to be added later:
 1. User Authentication
-1. Thumbs up and down for reviews
-1. Delete and edit reviews with user authentication
+2. Sort by price and date
+3. Delete and edit brands
 
 
 
 ## Credits
 
-* https://www.buzzfeed.com/scottybryan/27-podcasts-you-need-to-start-listening-to-in-2018?utm_term=.jaD2oaJDnV#.jibXyAB40p
+* Reactjs.org
 
 * 
 
