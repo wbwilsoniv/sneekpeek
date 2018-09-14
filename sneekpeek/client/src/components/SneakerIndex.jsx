@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import SneakerDetails from './SneakerDetails';
+import EditSneaker from './EditSneaker';
+import SneakerDetails from './SneakerDetails';
+import { fetchSneakers, updateSneaker } from './../services/api';
 
 
 class SneakerIndex extends Component {
@@ -9,9 +11,10 @@ class SneakerIndex extends Component {
         this.state = {
             sneakers: [],
             sneakerToEdit: {},
-            sneakerSelected: false, 
+            sneakerSelected: null, 
         }
         this.toggleSneakerSelected = this.toggleSneakerSelected.bind(this);
+        this.updateSneaker = this.updateSneaker.bind(this);
     }
     
       // gets all and sets state for Sneakers
@@ -30,21 +33,28 @@ class SneakerIndex extends Component {
     // changes boolean value for sneakerSelected. to be used for conditional render.
     // WIP currently sets last item in sneakers as sneaker to edit no matter what button is clicked.
     toggleSneakerSelected(e) {
-        // this.state.sneakers.filter(sneaker => 
         const editsneaker = this.state.sneakers.filter(sneaker => sneaker.id === parseInt(e.target.value));   
         debugger
         this.setState({
                 sneakerToEdit: editsneaker[0], 
                 sneakerSelected: true
                 })
-        // )
-        debugger
     }
 
     // props.handle
         // 3 functions => fetch call for edit => change state (toggle editButton selectedSneaker) => (props.selectedsneaker) 
 
- 
+        updateSneaker(sneaker) {
+            updateSneaker(sneaker)
+            .then(data => {
+              fetchSneakers()
+              .then(data => this.setState({
+                sneakers: data
+              }));
+            });
+          }    
+
+
     // shows brand name instead of brand_id for sneaker
     renderBrand(brand_id) {
         switch(brand_id) {
@@ -64,6 +74,12 @@ class SneakerIndex extends Component {
     
     render() {
         let sneakers = [this.state.sneakers];
+        let sneakerSelected = this.state.sneakerSelected;
+        if(sneakerSelected === true) {
+            return(
+                <EditSneaker sneaker={this.state.sneakerToEdit} onSubmit={this.updateSneaker} />
+            )
+        } else {
         return (
         <div className="sneakerContainer">
             {this.state.sneakers.map(sneaker => {
@@ -80,7 +96,8 @@ class SneakerIndex extends Component {
                 )
             })}
         </div>
-        )     
+        )   
+        }  
     }
 }
 

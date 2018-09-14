@@ -25,14 +25,15 @@ class EditSneaker extends Component {
 
   handleSneakSubmit(evt) {
     evt.preventDefault();
-    this.props.onSubmit(this.state);
-    this.setState({
-        model: '',
-        price: '',
-        release_date: '',
-        brand_id: '',
-        sneak_pic: ''
-    })
+    const data = {
+        model: this.state.model,
+        price: this.state.price,
+        release_date: this.state.release_date,
+        brand_id: this.state.brand_id,
+        sneak_pic: this.state.sneak_pic,
+        id: this.state.id
+    }
+    this.props.onSubmit(data);
   }
 
   delete(evt) {

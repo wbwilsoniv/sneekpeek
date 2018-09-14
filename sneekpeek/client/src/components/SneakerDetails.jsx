@@ -1,7 +1,6 @@
 import React from 'react';
 
 function SneakerDetails(props) {
-    const sneaker = this.props.sneaker;
     if (props.sneaker[0].id) {
     // renderBrand(id) {
     //     switch(id) {

@@ -4,12 +4,11 @@ import SneakerIndex from './components/SneakerIndex';
 import BrandIndex from './components/BrandIndex';
 import './App.css';
 import CreateSneaker from './components/CreateSneaker';
-// import EditSneaker from './components/EditSneaker';
+import EditSneaker from './components/EditSneaker';
 import Header from './components/Header';
 import axios from 'axios';
 // import ViewContainer from './components/ViewContainer';
 import SneakerDetails from './components/SneakerDetails';
-import EditSneaker from './components/EditSneaker';
 import NavButtons from './components/NavButtons';
 
 
@@ -25,7 +24,7 @@ class App extends Component {
     }
     this.createSneaker = this.createSneaker.bind(this);
     this.updateSneaker = this.updateSneaker.bind(this);
-    this.getSneaker = this.getSneaker.bind(this);
+    // this.getSneaker = this.getSneaker.bind(this);
     this.deleteSneaker = this.deleteSneaker.bind(this);
     this.handleAddSneaker = this.handleAddSneaker.bind(this);
     this.handleBrandClick = this.handleBrandClick.bind(this);
@@ -48,9 +47,6 @@ class App extends Component {
   updateSneaker(sneaker) {
     updateSneaker(sneaker)
     .then(data => {
-      this.setState({
-        sneakerDetails: [data]
-      })
       fetchSneakers()
       .then(data => this.setState({
         sneakers: data
@@ -59,15 +55,15 @@ class App extends Component {
   }
   
   // Get Sneaker function
-  getSneaker(id) {
-    axios.get(`http://localhost:3001/sneakers/${id}.json`)
-    .then(data => {
-      this.setState({
-        sneakerToEdit: data
-      })
-    })
-    .catch(err => console.log(err))
-  }
+  // getSneaker(id) {
+  //   axios.get(`http://localhost:3001/sneakers/${id}.json`)
+  //   .then(data => {
+  //     this.setState({
+  //       sneakerToEdit: data
+  //     })
+  //   })
+  //   .catch(err => console.log(err))
+  // }
 
   // Delete Sneaker function
   deleteSneaker(id) {
@@ -82,16 +78,16 @@ class App extends Component {
   }
   
   // WIP event handler for edit form
-  // handleEditSneaker(sneaker) {
-  //   this.setState({
-  //     sneakerToEdit: sneaker,
-  //     model: sneaker.model,
-  //     price: sneaker.price,
-  //     release_date: sneaker.release_date,
-  //     brand_id: sneaker.brand_id,
-  //     sneak_pic: sneaker.sneak_pic
-  //   });
-  // }
+  handleEditSneaker(sneaker) {
+    this.setState({
+      sneakerToEdit: sneaker,
+      model: sneaker.model,
+      price: sneaker.price,
+      release_date: sneaker.release_date,
+      brand_id: sneaker.brand_id,
+      sneak_pic: sneaker.sneak_pic
+    });
+  }
   
   // Click handler to change current view to Sneakers
   handleSneakersClick() {
@@ -142,14 +138,15 @@ class App extends Component {
         break;
       case 'Edit':
         return <EditSneaker
-          sneaker={this.state.sneaker}
+          sneaker={this.state.sneakerToEdit}
           model={this.state.model}
           price={this.state.sneaker.price}
           release_date={this.state.sneaker.release_date}
           brand_id={this.state.sneaker.brand_id} 
           handleEditSneaker={this.handleEditSneaker}
           handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}/>
+          handleChange={this.handleChange}
+          onSubmit={this.updateSneaker}/>
         break;
       default:
         return <SneakerIndex sneakers={this.state.sneakers} />;
