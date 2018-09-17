@@ -59,7 +59,7 @@ After creating both a functional front-end and back-end, I used CSS and Bulma to
 1. As a user I want to sort the podcasts by genre.
 1. As a user I want to see a description of each podcast.
 1. As a user I want to see reviews of a podcast.
-1. As a user I want to add / edit / delete a podcast.
+1. As a user I want to add / edit / delete a sneaker.
 1. As a user I want to review a podcast.
 
 
@@ -72,9 +72,7 @@ After creating both a functional front-end and back-end, I used CSS and Bulma to
 * Axios
 * Heroku
 * React
-* React-dom
-* React-scripts
-* Cors
+* CORS
 * Nodemon
 * PG-Promise
 * PSQL

@@ -127,5 +127,56 @@ body {
   border-radius: 3px;
 }
 
+.createSneakerFormDiv form {
+  display: grid;
+  grid-template-areas: 'modelLabel modelInput' 'priceLabel priceInput' 'releaseLabel releaseInput' 'brandLabel brand_id_select' 'picLabel picInput' 'saveBtn deleteBtn';
+}
+
+.modelLabel {
+  grid-area: modelLabel;
+  margin: auto;
+}
+
+modelInput {
+  grid-area: modelInput;
+  margin: auto;
+}
+
+.priceLabel {
+  grid-area: priceLabel;
+  margin: auto;
+}
+
+.priceInput {
+  grid-area: priceInput;
+  margin: auto;
+}
+
+.releaseInput {
+  grid-area: releaseInput;
+  margin: auto;
+}
+
+.brandLabel {
+  grid-area: brandLabel;
+  margin: auto;
+}
+
+.brand_id_select {
+  grid-area: brand_id_select;
+  margin: auto;
+}
+
+.releaseLabel {
+  grid-area: releaseLabel;
+  margin: auto;
+}
+
+.picLabel {
+  grid-area: picLabel;
+  margin: auto;
+}
+
+
 
 

@@ -160,9 +160,9 @@ class App extends Component {
         <Header />
         {/* <NavButtons handleAddSneaker={this.handleAddSneaker}/> */}
         <div className="navBtnDiv">
-          <h4 onClick={this.handleSneakersClick}>Sneakers</h4>
-          <h4 onClick={this.handleBrandClick}>Show Brands</h4>
-          <h4 onClick={this.handleAddSneaker}>Add Sneaker</h4>
+          <h4 onClick={this.handleSneakersClick}>SNEAKERS</h4>
+          <h4 onClick={this.handleBrandClick}>BRANDS</h4>
+          <h4 onClick={this.handleAddSneaker}>ADD SNEAKER</h4>
         </div>
       {this.viewController()}
       </div>

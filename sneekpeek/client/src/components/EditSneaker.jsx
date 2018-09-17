@@ -47,43 +47,36 @@ class EditSneaker extends Component {
               <div className="createSneakerFormDiv">
                 <h3>Edit Sneaker</h3>
                 <form onSubmit={this.handleSneakSubmit}>
-                    <label>Model:</label>
-                    <br />
+                    <label className="modelLabel">Model:</label>
                     <input
                         type="text"
-                        name="model"
+                        className="modelInput"
                         required="required"
                         value={this.state.model}
                         onChange={this.handleChange}
                         placeholder="Model"
                     />
-                    <br />
-                    <label>Price:</label>
-                    <br />
+                    <label className="priceLabel">Price:</label>
                     <input
                         type="number"
-                        name="price"
+                        className="priceInput"
                         required="required"
                         value={this.state.price}
                         onChange={this.handleChange}
                         placeholder="Price"
                     />
-                    <br />
-                    <label>Release Date:</label>
-                    <br />
+                    <label className="releaseLabel">Release Date:</label>
                     <input
                         type="text"
-                        name="release_date"
+                        className="releaseInput"
                         required="required"
                         value={this.state.release_date}
                         onChange={this.handleChange}
                         placeholder="Release Date"
                     />
-                    <br />
-                    <label>Brand:</label>
-                    <br />
+                    <label className="brandLabel">Brand:</label>
                     <select
-                        name="brand_id"
+                        className="brand_id_select"
                         onChange={this.handleChange}
                         required="required">
                         <option value="" disabled selected hidden>Select Brand</option>
@@ -91,17 +84,16 @@ class EditSneaker extends Component {
                         <option value="2">Jordan</option>
                         <option value="3">Nike</option>
                     </select>
-                    <br />
-                    <label>Pic</label>
+                    <label className="picLabel">Pic</label>
                     <input
                         type="text"
-                        name="sneak_pic"
+                        className="picInput"
                         value={this.state.sneak_pic}
                         onChange={this.handleChange}
                         placeholder="Image URL in this format http://yourImageURL.jpg"
                         />
-                    <button type="submit" value="Save Sneaker">Save Changes</button>
-                    <button onClick={this.delete} className="deletebtn">Delete</button>
+                    <button type="submit" value="Save Sneaker" className="saveBtn">Save Changes</button>
+                    <button onClick={this.delete} className="deleteBtn">Delete</button>
                 </form>
             </div>
           </div>

@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3001';
+const BASE_URL = 'https://secure-harbor-32985.herokuapp.com/';
 
 export function fetchSneakers() {
     return fetch(`${BASE_URL}/sneakers`)
