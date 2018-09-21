@@ -13,9 +13,6 @@ class SneakersController < ApplicationController
     end
 
     def create
-        # brand = Brand.find(params[:brand_id])
-        # brand.sneakers.create!(sneak_params)
-        
         @sneaker = Sneaker.create(sneak_params)
         render json: { sneaker: @sneaker }
     end

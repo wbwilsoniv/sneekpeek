@@ -1,0 +1,182 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+  color: rgb(3,3,3);
+}
+
+/* Lay-out Elements */
+
+.main-grid {
+  display: grid;
+  grid-template-areas: 'header' 'navBtnDiv' 'sneakerContainer' 'brandIndexContainer';
+  padding: 5px;
+}
+
+
+/* Components  */
+.header {
+  grid-area: header;
+  background-color: rgb(125,197,173);
+  font-weight: 800;
+  display: fixed;
+  box-shadow: 3px 3px 1px rgba(14, 14, 14, 0.1);
+}
+
+.header img {
+  height: 150px;
+  width: auto;
+}
+
+.navBtnDiv {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(125,197,173);
+  grid-area: navBtnDiv;
+  padding-bottom: 10px;
+  box-shadow: 3px 3px 1px rgba(14, 14, 14, 0.1);
+
+}
+
+.navBtnDiv h4 {
+  /* width: 100px;
+  height: 100px; */
+  margin: auto;
+  font-weight: 700;  
+
+}
+
+.sneakerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  grid-area: sneakerContainer;
+
+}
+
+.brandIndexContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  grid-area: brandIndexContainer;
+}
+
+.single-sneaker {
+  margin: auto;
+  display: grid;
+  grid-template-areas: 'sneakerBrand sneakerHeading . .''sneakerPic sneakerPic . sneakerRelease ' 'sneakerPic sneakerPic . .' 'sneakerPic sneakerPic . sneakerPrice' '. . . editBtn';
+  grid-template-columns: 175px 175px 2fr 3fr;
+  grid-template-rows: auto auto auto auto auto;
+  padding: 20px 30px;
+  box-shadow: 2px 2px 1px rgba(14, 14, 14, 0.1);
+}
+
+.sneakerBrand {
+  grid-area: sneakerBrand;
+  justify-self: end;
+  align-self: end;
+  padding-right: 5px;
+}
+
+.sneakerHeading {
+  grid-area: sneakerHeading;
+  justify-self: start;
+  align-self: end;
+  padding-left: 5px;
+}
+
+.sneakerPic {
+  padding: 25px;
+  grid-area: sneakerPic;
+  align-self: center;
+}
+
+.sneakerPrice {
+  grid-area: sneakerPrice;
+  justify-self: start;
+  align-self: start;
+  padding: 20px 20px 50px 20px;
+}
+
+.sneakerRelease {
+  grid-area: sneakerRelease;
+  justify-self: start;
+  align-self: start;
+  padding: 20px;
+}
+
+.editBtn {
+  grid-area: editBtn;
+  max-width: 75px;
+  padding: 10px 10px 10px 35px;
+}
+
+.editBtn button {
+  margin: auto;
+  border-radius: 4px;
+}
+
+.deleteBtn {
+  grid-area: deleteBtn;
+  max-width: 75px;
+  padding: 10px;
+}
+
+.deleteBtn button {
+  margin: auto;
+  border-radius: 3px;
+}
+
+.createSneakerFormDiv form {
+  display: grid;
+  grid-template-areas: 'modelLabel modelInput' 'priceLabel priceInput' 'releaseLabel releaseInput' 'brandLabel brand_id_select' 'picLabel picInput' 'saveBtn deleteBtn';
+}
+
+.modelLabel {
+  grid-area: modelLabel;
+  margin: auto;
+}
+
+modelInput {
+  grid-area: modelInput;
+  margin: auto;
+}
+
+.priceLabel {
+  grid-area: priceLabel;
+  margin: auto;
+}
+
+.priceInput {
+  grid-area: priceInput;
+  margin: auto;
+}
+
+.releaseInput {
+  grid-area: releaseInput;
+  margin: auto;
+}
+
+.brandLabel {
+  grid-area: brandLabel;
+  margin: auto;
+}
+
+.brand_id_select {
+  grid-area: brand_id_select;
+  margin: auto;
+}
+
+.releaseLabel {
+  grid-area: releaseLabel;
+  margin: auto;
+}
+
+.picLabel {
+  grid-area: picLabel;
+  margin: auto;
+}
+
+
+
+

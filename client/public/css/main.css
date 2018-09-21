@@ -1,0 +1,56 @@
+/* Lay-out Elements */
+
+.main-grid {
+    display: grid;
+    grid-template-areas: 'header' 'navBtnDiv' 'sneakerContainer' 'brandIndexContainer';
+    padding: 5px;
+}
+
+
+/* Components  */
+.header {
+    grid-area: header;
+    background-color: rgb(125,197,173);
+    font-weight: 800;
+}
+
+
+.navBtnDiv {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(125,197,173);
+    grid-area: navBtnDiv;
+
+}
+
+.navBtnDiv.button {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+
+}
+
+.sneakerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    grid-area: sneakerContainer;
+
+}
+
+.brandIndexContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    grid-area: brandIndexContainer;
+}
+
+.single-sneaker {
+    margin: auto;
+}
+
+/* Text Elements */
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    background-color: rgb(240,240,240);
+}
