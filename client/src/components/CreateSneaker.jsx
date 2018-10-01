@@ -38,48 +38,54 @@ class CreateSneaker extends Component {
         return (
             <div className="createSneakerFormDiv">
                 <form onSubmit={this.handleSneakSubmit}>
-                    <label>Model:</label>
+                <label className="modelLabel">Model:</label>
                     <input
                         type="text"
-                        name="model"
+                        className="modelInput"
                         required="required"
                         value={this.state.model}
                         onChange={this.handleChange}
                         placeholder="Model"
                     />
-                    <br />
-                    <label>Price:</label>
+                    <label className="priceLabel">Price:</label>
                     <input
                         type="number"
-                        name="price"
+                        className="priceInput"
                         required="required"
                         value={this.state.price}
                         onChange={this.handleChange}
                         placeholder="Price"
                     />
-                    <br />
-                    <label>Release Date:</label>
+                    <label className="releaseLabel">Release Date:</label>
                     <input
                         type="text"
-                        name="release_date"
+                        className="releaseInput"
                         required="required"
                         value={this.state.release_date}
                         onChange={this.handleChange}
-                        placeholder="Release Data"
+                        placeholder="Release Date"
                     />
-                    <br />
-                    <label>Brand:</label>
+                    <label className="brandLabel">Brand:</label>
                     <select
-                        name="brand_id"
+                        className="brand_id_select"
                         onChange={this.handleChange}
                         required="required">
-                        <option value="default">Select Brand</option>
+                        <option value="" disabled selected hidden>Select Brand</option>
                         <option value="1">Adidas</option>
                         <option value="2">Jordan</option>
                         <option value="3">Nike</option>
                     </select>
-                    <br />
-                    <button type="submit" value="Create Sneaker">Create Sneaker</button>
+                    <label className="picLabel">Pic</label>
+                    <input
+                        type="text"
+                        className="picInput"
+                        value={this.state.sneak_pic}
+                        onChange={this.handleChange}
+                        placeholder="Image URL in this format http://yourImageURL.jpg"
+                        />
+                    <div className="btns">
+                        <button type="submit" value="Create Sneaker">Create Sneaker</button>
+                    </div>
                 </form>
             </div>
         )

@@ -130,7 +130,8 @@ body {
 .createSneakerFormDiv form {
   display: grid;
   padding: 20px;
-  grid-template-areas: 'modelLabel modelInput' 'priceLabel priceInput' 'releaseLabel releaseInput' 'brandLabel brand_id_select' 'picLabel picInput' 'saveBtn deleteBtn';
+  line-height: 145%;
+  grid-template-areas: 'modelLabel modelInput' 'priceLabel priceInput' 'releaseLabel releaseInput' 'brandLabel brand_id_select' 'picLabel picInput' '. btns';
 }
 
 .modelLabel {
@@ -144,7 +145,7 @@ body {
   grid-area: modelInput;
   margin: auto;
   padding: 10px;
-  max-width: 20vw;
+  max-width: 30vw;
 }
 
 .priceLabel {
@@ -158,14 +159,14 @@ body {
   grid-area: priceInput;
   margin: auto;
   padding: 10px;
-  max-width: 20vw;
+  max-width: 30vw;
 }
 
 .releaseInput {
   grid-area: releaseInput;
   margin: auto;
   padding: 10px;
-  max-width: 20vw;
+  max-width: 30vw;
 }
 
 .brandLabel {
@@ -178,7 +179,7 @@ body {
   grid-area: brand_id_select;
   margin: auto;
   padding: 10px;
-  max-width: 20vw;
+  max-width: 30vw;
 }
 
 .releaseLabel {
@@ -197,15 +198,51 @@ body {
   grid-area: picInput;
   margin: auto;
   padding: 10px;
-  max-width: 20vw;
+  max-width: 30vw;
+}
+
+.btns {
+  grid-area: btns;
+  display: flex;
+  padding: 20px 40px 0px 0px;
+  justify-content: space-evenly;
 }
 
 .saveBtn {
-  grid-area: saveBtn;
-  justify-content: end;
+  justify-self: end;
   padding: 10px;
 }
 
+.single-brand {
+  display: grid;
+  grid-template-areas: 'brandName . .' 'brandLogo brandHq .'  'brandLogo brandFounded .' 'brandDesc brandDesc brandDesc';
+  box-shadow: 2px 2px 1px rgba(14, 14, 14, 0.1);
+}
+
+.brandName {
+  grid-area: brandName;
+}
+
+.brandHq {
+  grid-area: brandHq;
+  align-self: center;
+}
+
+.brandFounded {
+  grid-area: brandFounded;
+}
+
+.brandLogo {
+  grid-area: brandLogo;
+  padding-left: 30px;
+  max-width: 30vw;
+}
+
+.brandDesc {
+  grid-area: brandDesc;
+  max-width: 80vw;
+  padding-right: 20px
+}
 
 
 

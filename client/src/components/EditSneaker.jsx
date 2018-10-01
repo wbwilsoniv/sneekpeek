@@ -92,8 +92,10 @@ class EditSneaker extends Component {
                         onChange={this.handleChange}
                         placeholder="Image URL in this format http://yourImageURL.jpg"
                         />
-                    <div><button type="submit" value="Save Sneaker" className="saveBtn">Save</button></div>
-                    <button onClick={this.delete} className="deleteBtn">Delete</button>
+                    <div className="btns">
+                        <button type="submit" value="Save Sneaker" className="saveBtn">Save</button>
+                        <button onClick={this.delete} className="deleteBtn">Delete</button>
+                    </div>
                 </form>
             </div>
           </div>
