@@ -6,18 +6,18 @@ SneekPeek is a React on Rails app where users can track upcoming sneaker release
 
 ## Motivation
 
-As a long-time sneaker afficionado, I wanted to create an app where I can keep track of upcoming sneaker release dates  
+As a long-time sneaker aficionado, I wanted to create an app where I can keep track of upcoming sneaker release dates  
 
 ## General Approach
 
 
 For this project I started with creating ERDs for Sneakers and Brands. The back-end was then built using Ruby on Rails.
 
-From there we set about building up the app where we would define our models, controllers and routes for CRUD on both podcasts and reviews.
+From there we set about building up the app where we would define our models, controllers and routes for CRUD on Sneakers and show all for Brands.
 
-For the client side,  the front-end I used react.js. 
+For the client side, the front-end I used react.js. 
 
-After creating both a functional front-end and back-end, I used CSS-Grid and flexbox to style and format our app.
+After creating both a functional front-end and back-end, I used CSS-Grid and flexbox to style and format my app.
 
 
 ## App Link
@@ -25,7 +25,7 @@ After creating both a functional front-end and back-end, I used CSS-Grid and fle
 
 ## MVP
 1. CRUD functionality for Sneaker
-2. CRUD functionality for Brands
+2. Read functionality for Brands
 
 ## ICE-Box
 
@@ -84,7 +84,8 @@ renderBrand(brand_id) {
 * PG-Promise
 * PSQL
 * Body-Parser
-* CSS-Grid 
+* CSS-Grid
+* Flexbox 
 
  
 
@@ -110,7 +111,7 @@ List of sneakers default rendered. Click around!
 
 * https://rubyonrails.org/
 
-* General Assembly NYC Lambda Repo
+* General Assembly NYC Lambda Repos
 
 
 ## License

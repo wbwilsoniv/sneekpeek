@@ -19,5 +19,8 @@
 
 .byebug_history
 
+# Ignore public
+/public
+
 # Ignore master key for decrypting credentials and more.
 /config/master.key
