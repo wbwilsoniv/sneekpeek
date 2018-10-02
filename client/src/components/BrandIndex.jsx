@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+import { fetchBrands } from './../services/api';
 
 class BrandIndex extends Component {
     constructor(props) {
@@ -9,16 +10,22 @@ class BrandIndex extends Component {
         }
     }
 
+    // componentDidMount() {
+    //     axios.get('http://localhost:3001/brands.json')
+    //     .then(resp => {
+    //         // console.log(resp)
+    //         this.setState({
+    //             brands: resp.data
+    //         })
+    //     })
+    //     .catch(err => console.log(err))
+    // }
+
     componentDidMount() {
-        axios.get('http://localhost:3001/brands.json')
-        .then(resp => {
-            // console.log(resp)
-            this.setState({
-                brands: resp.data
-            })
-        })
-        .catch(err => console.log(err))
+        fetchBrands()
+        .then(data => this.setState ({ brands: data }));
     }
+
     render() {
         return (
             <div className="brandsIndexContainer">

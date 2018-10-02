@@ -1,3 +1,5 @@
+// import axios from "axios";
+
 const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3001';
 
 export function fetchSneakers() {
@@ -7,6 +9,21 @@ export function fetchSneakers() {
         throw Error(err);
       });
 };
+
+export function fetchBrands() {
+  return fetch(`${BASE_URL}/brands`)
+    .then(resp => resp.json())
+    .catch(err => {
+      throw Error(err);
+    });
+};
+// export function fetchSneakers() {
+//   return axios.get(`${BASE_URL}/sneakers`)
+//   .then(resp => { resp.data })
+//   .catch(err => {
+//     throw Error(err);
+//   });
+// };
 
 export function fetchOneSneaker(id) {
     return fetch(`${BASE_URL}/sneakers/${id}`)

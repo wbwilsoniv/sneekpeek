@@ -32,7 +32,10 @@ class App extends Component {
     this.handleEdit = this.handleEdit.bind(this);
   }
   
-
+  componentDidMount() {
+    fetchSneakers()
+    .then(data => this.setState ({ sneakers: data }));
+  }
 
   // Create sneaker function 
   createSneaker(sneaker) {

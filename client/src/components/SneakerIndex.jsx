@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import EditSneaker from './EditSneaker';
 import SneakerDetails from './SneakerDetails';
 import { fetchSneakers, updateSneaker, deleteSneaker } from './../services/api';
@@ -19,17 +19,22 @@ class SneakerIndex extends Component {
     }
     
       // gets all and sets state for Sneakers
-  componentDidMount() {
-    axios.get('http://localhost:3001/sneakers.json')
-    // fetchSneakers()
-    .then(resp => {
-        this.setState({
-            sneakers: resp.data,
-        })
-    })
-    .catch(err => console.log(err))
-}
+//     const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3001';
+//     componentDidMount() {
+//     // axios.get('http://localhost:3001/sneakers.json')
+//     fetchSneakers()
+//     .then(resp => {
+//         this.setState({
+//             sneakers: resp.data,
+//         })
+//     })
+//     .catch(err => console.log(err))
+// }
 
+    componentDidMount() {
+        fetchSneakers()
+        .then(data => this.setState ({ sneakers: data }));
+    }    
    
     // handles click and sets state for sneaker edit
     // changes boolean value for sneakerSelected. to be used for conditional render.
