@@ -11,6 +11,7 @@ import "./App.css";
 import CreateSneaker from "./components/CreateSneaker";
 import EditSneaker from "./components/EditSneaker";
 import Header from "./components/Header";
+import Loader from "./components/Loader";
 // import axios from 'axios';
 // import ViewContainer from './components/ViewContainer';
 import SneakerDetails from "./components/SneakerDetails";
