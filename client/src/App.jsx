@@ -1,27 +1,32 @@
-import React, { Component } from 'react';
-import { fetchSneakers, saveSneaker, updateSneaker, deleteSneaker } from './services/api';
-import SneakerIndex from './components/SneakerIndex';
-import BrandIndex from './components/BrandIndex';
-import './App.css';
-import CreateSneaker from './components/CreateSneaker';
-import EditSneaker from './components/EditSneaker';
-import Header from './components/Header';
+import React, { Component } from "react";
+import {
+  fetchSneakers,
+  saveSneaker,
+  updateSneaker,
+  deleteSneaker
+} from "./services/api";
+import SneakerIndex from "./components/SneakerIndex";
+import BrandIndex from "./components/BrandIndex";
+import "./App.css";
+import CreateSneaker from "./components/CreateSneaker";
+import EditSneaker from "./components/EditSneaker";
+import Header from "./components/Header";
 // import axios from 'axios';
 // import ViewContainer from './components/ViewContainer';
-import SneakerDetails from './components/SneakerDetails';
-import NavButtons from './components/NavButtons';
-
+import SneakerDetails from "./components/SneakerDetails";
+import NavButtons from "./components/NavButtons";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoading: true,
       sneakers: [],
       brands: [],
-      sneaker: '',
+      sneaker: "",
       sneakerToEdit: {},
-      currentView: ''
-    }
+      currentView: ""
+    };
     this.createSneaker = this.createSneaker.bind(this);
     this.updateSneaker = this.updateSneaker.bind(this);
     // this.getSneaker = this.getSneaker.bind(this);
@@ -31,32 +36,31 @@ class App extends Component {
     this.handleSneakersClick = this.handleSneakersClick.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
   }
-  
+
   componentDidMount() {
-    fetchSneakers()
-    .then(data => this.setState ({ sneakers: data }));
+    fetchSneakers().then(data =>
+      this.setState({ isLoading: false, sneakers: data })
+    );
   }
 
-  // Create sneaker function 
+  // Create sneaker function
   createSneaker(sneaker) {
-    saveSneaker(sneaker)
-    .then(data => {
-      fetchSneakers()
-        .then(data => this.setState({ sneakers: data }));
-    })
+    saveSneaker(sneaker).then(data => {
+      fetchSneakers().then(data => this.setState({ sneakers: data }));
+    });
   }
 
   // Update Sneaker
   updateSneaker(sneaker) {
-    updateSneaker(sneaker)
-    .then(data => {
-      fetchSneakers()
-      .then(data => this.setState({
-        sneakers: data
-      }));
+    updateSneaker(sneaker).then(data => {
+      fetchSneakers().then(data =>
+        this.setState({
+          sneakers: data
+        })
+      );
     });
   }
-  
+
   // Get Sneaker function
   // getSneaker(id) {
   //   axios.get(`http://localhost:3001/sneakers/${id}.json`)
@@ -70,16 +74,16 @@ class App extends Component {
 
   // Delete Sneaker function
   deleteSneaker(id) {
-    deleteSneaker(id)
-    .then(data => {
-      fetchSneakers()
-      .then(data => this.setState({
-        sneakers: data,
-        brands: [],
-      }));
+    deleteSneaker(id).then(data => {
+      fetchSneakers().then(data =>
+        this.setState({
+          sneakers: data,
+          brands: []
+        })
+      );
     });
   }
-  
+
   // WIP event handler for edit form
   handleEditSneaker(sneaker) {
     this.setState({
@@ -91,69 +95,79 @@ class App extends Component {
       sneak_pic: sneaker.sneak_pic
     });
   }
-  
+
   // Click handler to change current view to Sneakers
   handleSneakersClick() {
     this.setState({
-      currentView: 'Sneaker Index'
+      currentView: "Sneaker Index"
     });
   }
-  
+
   // Click handler to change current view to Brands
   handleBrandClick() {
     this.setState({
-      currentView: 'Brand Index'
+      currentView: "Brand Index"
     });
   }
-  
+
   // click handler to change current view to Add New
   handleAddSneaker() {
     this.setState({
-      currentView: 'Add New'
+      currentView: "Add New"
     });
   }
-  
+
   // click handler to change current view to Edit
   handleEdit() {
     this.setState({
-      currentView: 'Edit'
+      currentView: "Edit"
     });
   }
 
   viewController() {
     const { currentView } = this.state;
-    switch (currentView) {
-      case 'Sneaker Index':
-        return <SneakerIndex sneakers={this.state.sneakers} />
-      break;
-      case 'Brand Index':
-        return <BrandIndex brands={this.state.brands} />
-      break;
-      case 'Add New':
-        return <CreateSneaker
-          model={this.state.model}
-          price={this.state.price}
-          release_date={this.state.release_date}
-          brand_id={this.state.brand_id} 
-          sneak_pic={this.state.sneak_pic}
-          onSubmit={this.createSneaker}
-          handleSneakSubmit={this.handleSneakSubmit}
-          handleChange={this.handleChange}/>
-        break;
-      case 'Edit':
-        return <EditSneaker
-          sneaker={this.state.sneakerToEdit}
-          model={this.state.model}
-          price={this.state.sneaker.price}
-          release_date={this.state.sneaker.release_date}
-          brand_id={this.state.sneaker.brand_id} 
-          handleEditSneaker={this.handleEditSneaker}
-          handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
-          onSubmit={this.updateSneaker}/>
-        break;
-      default:
-        return <SneakerIndex sneakers={this.state.sneakers} />;
+    if (this.state.isLoading) {
+      return <Loader />;
+    } else {
+      switch (currentView) {
+        case "Sneaker Index":
+          return <SneakerIndex sneakers={this.state.sneakers} />;
+          break;
+        case "Brand Index":
+          return <BrandIndex brands={this.state.brands} />;
+          break;
+        case "Add New":
+          return (
+            <CreateSneaker
+              model={this.state.model}
+              price={this.state.price}
+              release_date={this.state.release_date}
+              brand_id={this.state.brand_id}
+              sneak_pic={this.state.sneak_pic}
+              onSubmit={this.createSneaker}
+              handleSneakSubmit={this.handleSneakSubmit}
+              handleChange={this.handleChange}
+            />
+          );
+          break;
+        case "Edit":
+          return (
+            <EditSneaker
+              sneaker={this.state.sneakerToEdit}
+              model={this.state.model}
+              price={this.state.sneaker.price}
+              release_date={this.state.sneaker.release_date}
+              brand_id={this.state.sneaker.brand_id}
+              handleEditSneaker={this.handleEditSneaker}
+              handleSubmit={this.handleSubmit}
+              handleChange={this.handleChange}
+              onSubmit={this.updateSneaker}
+            />
+          );
+          break;
+        default:
+          return <SneakerIndex sneakers={this.state.sneakers} />;
+      }
     }
   }
 
@@ -167,7 +181,7 @@ class App extends Component {
           <h4 onClick={this.handleBrandClick}>BRANDS</h4>
           <h4 onClick={this.handleAddSneaker}>ADD SNEAKER</h4>
         </div>
-      {this.viewController()}
+        {this.viewController()}
       </div>
     );
   }
