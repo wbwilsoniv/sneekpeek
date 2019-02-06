@@ -34,15 +34,19 @@ class BrandIndex extends Component {
       return <Loader />;
     } else {
       return (
-        <div className="brandsIndexContainer">
+        <div className="brandsIndex-container">
           {this.state.brands.map(brand => {
             return (
               <div className="single-brand" key={brand.id}>
-                <h4 className="brandName">{brand.name}</h4>
-                <img src={brand.pic_url} className="brandLogo" />
-                <h5 className="brandHq">HQ: {brand.hq}</h5>
-                <h5 className="brandFounded">Founded in {brand.founded}</h5>
-                <p className="brandDesc">{brand.about}</p>
+                <h4 className="brandName title is-3">{brand.name}</h4>
+                <div className="brand logoDiv">
+                    <figure class="image is128x128">
+                    <img src={brand.pic_url} className="brandLogo" />
+                    </figure>
+                </div>
+                    <p className="brandHq"><strong>HQ: </strong> {brand.hq}</p>
+                    <p className="brandFounded"><strong>Founded:</strong> {brand.founded}</p>
+                    <p className="brandDesc">{brand.about}</p>
               </div>
             );
           })}

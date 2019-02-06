@@ -54,7 +54,7 @@ body {
 
 }
 
-.brandIndexContainer {
+.brandIndex.container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -212,11 +212,21 @@ body {
   justify-self: end;
   padding: 10px;
 }
-
+.brandsIndex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
 .single-brand {
   display: grid;
-  grid-template-areas: 'brandName . .' 'brandLogo brandHq .'  'brandLogo brandFounded .' 'brandDesc brandDesc brandDesc';
+  grid-template-columns: 200px 50px 250px; 
+  grid-template-areas: 'brandName . .' 
+  'brandLogo . brandHq '  
+  'brandLogo . brandFounded' 
+  'brandDesc brandDesc brandDesc';
   box-shadow: 2px 2px 1px rgba(14, 14, 14, 0.1);
+  max-width: 500px;
 }
 
 .brandName {
@@ -226,22 +236,33 @@ body {
 .brandHq {
   grid-area: brandHq;
   align-self: center;
+  justify-self: start;
+  padding-right: 2em;
 }
 
 .brandFounded {
   grid-area: brandFounded;
+  justify-self: start;
+  padding-right: 2em;
+}
+
+.brand.logoDiv {
+  grid-area: brandLogo;
+  max-width: 200px;
+  align-self: center;
 }
 
 .brandLogo {
   grid-area: brandLogo;
-  padding-left: 30px;
-  max-width: 30vw;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 .brandDesc {
   grid-area: brandDesc;
-  max-width: 80vw;
-  padding-right: 20px
+  padding: 0px 2em 0.5em 2em;
+  justify-self: center;
 }
 
 
