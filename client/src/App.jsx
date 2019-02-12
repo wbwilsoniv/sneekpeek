@@ -93,7 +93,7 @@ class App extends Component {
       price: sneaker.price,
       release_date: sneaker.release_date,
       brand_id: sneaker.brand_id,
-      sneak_pic: sneaker.sneak_pic
+      pic_url: sneaker.pic_url
     });
   }
 
@@ -129,46 +129,45 @@ class App extends Component {
     const { currentView } = this.state;
     if (this.state.isLoading) {
       return <Loader />;
-    } else {
-      switch (currentView) {
-        case "Sneaker Index":
-          return <SneakerIndex sneakers={this.state.sneakers} />;
-          break;
-        case "Brand Index":
-          return <BrandIndex brands={this.state.brands} />;
-          break;
-        case "Add New":
-          return (
-            <CreateSneaker
-              model={this.state.model}
-              price={this.state.price}
-              release_date={this.state.release_date}
-              brand_id={this.state.brand_id}
-              sneak_pic={this.state.sneak_pic}
-              onSubmit={this.createSneaker}
-              handleSneakSubmit={this.handleSneakSubmit}
-              handleChange={this.handleChange}
-            />
-          );
-          break;
-        case "Edit":
-          return (
-            <EditSneaker
-              sneaker={this.state.sneakerToEdit}
-              model={this.state.model}
-              price={this.state.sneaker.price}
-              release_date={this.state.sneaker.release_date}
-              brand_id={this.state.sneaker.brand_id}
-              handleEditSneaker={this.handleEditSneaker}
-              handleSubmit={this.handleSubmit}
-              handleChange={this.handleChange}
-              onSubmit={this.updateSneaker}
-            />
-          );
-          break;
-        default:
-          return <SneakerIndex sneakers={this.state.sneakers} />;
-      }
+    }
+    switch (currentView) {
+      case "Sneaker Index":
+        return <SneakerIndex sneakers={this.state.sneakers} />;
+        break;
+      case "Brand Index":
+        return <BrandIndex brands={this.state.brands} />;
+        break;
+      case "Add New":
+        return (
+          <CreateSneaker
+            model={this.state.model}
+            price={this.state.price}
+            release_date={this.state.release_date}
+            brand_id={this.state.brand_id}
+            pic_url={this.state.pic_url}
+            onSubmit={this.createSneaker}
+            handleSneakSubmit={this.handleSneakSubmit}
+            handleChange={this.handleChange}
+          />
+        );
+        break;
+      case "Edit":
+        return (
+          <EditSneaker
+            sneaker={this.state.sneakerToEdit}
+            model={this.state.model}
+            price={this.state.sneaker.price}
+            release_date={this.state.sneaker.release_date}
+            brand_id={this.state.sneaker.brand_id}
+            handleEditSneaker={this.handleEditSneaker}
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+            onSubmit={this.updateSneaker}
+          />
+        );
+        break;
+      default:
+        return <SneakerIndex sneakers={this.state.sneakers} />;
     }
   }
 

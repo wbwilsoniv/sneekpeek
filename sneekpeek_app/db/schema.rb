@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_10_220001) do
+ActiveRecord::Schema.define(version: 2019_02_12_230523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2018_09_10_220001) do
     t.string "hq"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "pic_url"
+    t.string "img_url"
   end
 
   create_table "sneakers", force: :cascade do |t|
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2018_09_10_220001) do
     t.bigint "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "sneak_pic"
+    t.string "pic_url"
     t.index ["brand_id"], name: "index_sneakers_on_brand_id"
   end
 
