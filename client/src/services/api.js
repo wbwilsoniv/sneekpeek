@@ -2,8 +2,8 @@
 
 // const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3001';
 
-const BASE_URL =
-  "http://localhost:3001" || "https://salty-peak-85933.herokuapp.com";
+const BASE_URL = "https://salty-peak-85933.herokuapp.com";
+//  || "http://localhost:3001";
 
 export function fetchSneakers() {
   return fetch(`${BASE_URL}/sneakers`)
@@ -20,13 +20,6 @@ export function fetchBrands() {
       throw Error(err);
     });
 }
-// export function fetchSneakers() {
-//   return axios.get(`${BASE_URL}/sneakers`)
-//   .then(resp => { resp.data })
-//   .catch(err => {
-//     throw Error(err);
-//   });
-// };
 
 export function fetchOneSneaker(id) {
   return fetch(`${BASE_URL}/sneakers/${id}`)
