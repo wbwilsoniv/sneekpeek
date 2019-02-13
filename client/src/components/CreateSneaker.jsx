@@ -10,6 +10,7 @@ class CreateSneaker extends Component {
       brand_id: "",
       pic_url: ""
     };
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSneakSubmit = this.handleSneakSubmit.bind(this);
   }
@@ -30,70 +31,89 @@ class CreateSneaker extends Component {
       price: this.state.price,
       release_date: this.state.release_date,
       brand_id: this.state.brand_id,
-      pic_url: this.state.pic_url,
-      id: this.state.id
+      pic_url: this.state.pic_url
     };
     this.props.onSubmit(data);
   }
 
   render() {
     return (
-      <div className="createSneakerFormDiv">
-        <form onSubmit={this.handleSneakSubmit}>
-          <label className="modelLabel">Model:</label>
-          <input
-            type="text"
-            className="modelInput"
-            required="required"
-            value={this.state.model}
-            onChange={this.handleChange}
-            placeholder="Model"
-          />
-          <label className="priceLabel">Price:</label>
-          <input
-            type="number"
-            className="priceInput"
-            required="required"
-            value={this.state.price}
-            onChange={this.handleChange}
-            placeholder="Price"
-          />
-          <label className="releaseLabel">Release Date:</label>
-          <input
-            type="text"
-            className="releaseInput"
-            required="required"
-            value={this.state.release_date}
-            onChange={this.handleChange}
-            placeholder="Release Date"
-          />
-          <label className="brandLabel">Brand:</label>
-          <select
-            className="brand_id_select"
-            onChange={this.handleChange}
-            required="required"
-          >
-            <option value="" disabled selected hidden>
-              Select Brand
-            </option>
-            <option value="1">Adidas</option>
-            <option value="2">Jordan</option>
-            <option value="3">Nike</option>
-          </select>
-          <label className="picLabel">Pic</label>
-          <input
-            type="text"
-            className="picInput"
-            value={this.state.pic_url}
-            onChange={this.handleChange}
-            placeholder="Image URL in this format http://yourImageURL.jpg"
-          />
-          <div className="btns">
-            <button type="submit" value="Create Sneaker">
-              Create Sneaker
-            </button>
-          </div>
-        </form>
+      <div className="container createDiv">
+        <div className="field">
+          <form onSubmit={this.handleSneakSubmit}>
+            <label className="label is-medium createTitle">Add New</label>
+            <div className="field">
+              <label className="label createLabel">Model:</label>
+              <div className="control">
+                <input
+                  placeholder="Model"
+                  type="text"
+                  className="input"
+                  name="model"
+                  value={this.state.model}
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>
+            <div className="field">
+              <label className="label createLabel">Price:</label>
+              <div className="control">
+                <input
+                  placeholder="Price"
+                  type="text"
+                  className="input"
+                  name="price"
+                  value={this.state.price}
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>
+            <div className="field">
+              <label className="label createLabel">Release Date:</label>
+              <div className="control">
+                <input
+                  placeholder="Release Date"
+                  type="text"
+                  className="input"
+                  name="release_date"
+                  value={this.state.release_date}
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>
+            <div className="field">
+              <label className="label createLabel">Brand:</label>
+              <div className="control">
+                <div className="select">
+                  <select>
+                    <option value="">Select Brand</option>
+                    <option value="1">Adidas</option>
+                    <option value="2">Jordan</option>
+                    <option value="3">Nike</option>
+                    <option value="4">Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div className="field">
+              <label className="label createLabel">Pic</label>
+              <div className="control">
+                <input
+                  placeholder="Image URL in this format http://yourImageURL.jpg"
+                  type="text"
+                  className="input"
+                  value={this.state.pic_url}
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>
+            <div className="control">
+              <button type="submit" className="button is-medium is-primary">
+                Create Sneaker
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

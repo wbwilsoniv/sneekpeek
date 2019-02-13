@@ -1,23 +1,30 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
-  color: rgb(3,3,3);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  color: rgb(3, 3, 3);
 }
 
 /* Lay-out Elements */
 
-.main-grid {
-  display: grid;
-  grid-template-areas: 'header' 'navBtnDiv' 'sneakerContainer' 'brandIndexContainer';
-  padding: 5px;
+.title {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  color: rgb(3, 3, 3);
+}
+.title.head {
+  margin-bottom: 0;
 }
 
+.main-grid {
+  display: grid;
+  grid-template-areas: "header" "navBtnDiv" "sneakerContainer" "brandIndexContainer";
+  padding: 5px;
+}
 
 /* Components  */
 .header {
   grid-area: header;
-  background-color: rgb(125,197,173);
+  background-color: rgb(125, 197, 173);
   font-weight: 800;
   display: fixed;
   box-shadow: 3px 3px 1px rgba(14, 14, 14, 0.1);
@@ -31,19 +38,17 @@ body {
 .navBtnDiv {
   display: flex;
   justify-content: space-evenly;
-  background-color: rgb(125,197,173);
+  background-color: rgb(125, 197, 173);
   grid-area: navBtnDiv;
   padding-bottom: 10px;
   box-shadow: 3px 3px 1px rgba(14, 14, 14, 0.1);
-
 }
 
 .navBtnDiv h4 {
   /* width: 100px;
   height: 100px; */
   margin: auto;
-  font-weight: 700;  
-
+  font-weight: 700;
 }
 
 .sneakerContainer {
@@ -51,7 +56,6 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   grid-area: sneakerContainer;
-
 }
 
 .brandIndex.container {
@@ -64,7 +68,7 @@ body {
 .single-sneaker {
   margin: auto;
   display: grid;
-  grid-template-areas: 'sneakerBrand sneakerHeading . .''sneakerPic sneakerPic . sneakerRelease ' 'sneakerPic sneakerPic . .' 'sneakerPic sneakerPic . sneakerPrice' '. . . editBtn';
+  grid-template-areas: "sneakerBrand sneakerHeading . ." "sneakerPicDiv sneakerPicDiv . sneakerRelease " "sneakerPicDiv sneakerPicDiv . ." "sneakerPicDiv sneakerPicDiv . sneakerPrice" ". . . editBtn";
   grid-template-columns: 175px 175px 2fr 3fr;
   grid-template-rows: auto auto auto auto auto;
   padding: 20px 30px;
@@ -74,7 +78,7 @@ body {
 .sneakerBrand {
   grid-area: sneakerBrand;
   justify-self: end;
-  align-self: end;
+  align-self: start;
   padding-right: 5px;
 }
 
@@ -85,15 +89,22 @@ body {
   padding-left: 5px;
 }
 
-.sneakerPic {
-  padding: 25px;
-  grid-area: sneakerPic;
+.sneakerPicDiv {
+  grid-area: sneakerPicDiv;
+  padding: 20px;
   align-self: center;
+  max-width: 350px;
+}
+
+.sneakerPic {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 .sneakerPrice {
   grid-area: sneakerPrice;
-  justify-self: start;
+  justify-self: center;
   align-self: start;
   padding: 20px 20px 50px 20px;
 }
@@ -108,12 +119,12 @@ body {
 .editBtn {
   grid-area: editBtn;
   max-width: 75px;
+  align-content: flex-start;
   padding: 10px 10px 10px 35px;
 }
 
-.editBtn button {
-  margin: auto;
-  border-radius: 4px;
+.edit {
+  align-self: start;
 }
 
 .deleteBtn {
@@ -126,12 +137,23 @@ body {
   margin: auto;
   border-radius: 3px;
 }
-
-.createSneakerFormDiv form {
+.createDiv {
+  max-width: 500px;
+}
+.createDiv input {
+  max-width: 400px;
+}
+.createTitle {
+  padding: 15px 0px 15px 0px;
+}
+.createLabel {
+  text-align: left;
+}
+/* .createSneakerFormDiv form {
   display: grid;
   padding: 20px;
   line-height: 145%;
-  grid-template-areas: 'modelLabel modelInput' 'priceLabel priceInput' 'releaseLabel releaseInput' 'brandLabel brand_id_select' 'picLabel picInput' '. btns';
+  grid-template-areas: "modelLabel modelInput" "priceLabel priceInput" "releaseLabel releaseInput" "brandLabel brand_id_select" "picLabel picInput" ". btns";
 }
 
 .modelLabel {
@@ -206,7 +228,7 @@ body {
   display: flex;
   padding: 20px 40px 0px 0px;
   justify-content: space-evenly;
-}
+} */
 
 .saveBtn {
   justify-self: end;
@@ -220,17 +242,19 @@ body {
 }
 .single-brand {
   display: grid;
-  grid-template-columns: 200px 50px 250px; 
-  grid-template-areas: 'brandName . .' 
-  'brandLogo . brandHq '  
-  'brandLogo . brandFounded' 
-  'brandDesc brandDesc brandDesc';
+  grid-template-columns: 200px 50px 250px;
+  grid-template-areas:
+    "brandName . ."
+    "brandLogo . brandHq "
+    "brandLogo . brandFounded"
+    "brandDesc brandDesc brandDesc";
   box-shadow: 2px 2px 1px rgba(14, 14, 14, 0.1);
   max-width: 500px;
 }
 
 .brandName {
   grid-area: brandName;
+  padding-top: 1em;
 }
 
 .brandHq {
@@ -261,9 +285,6 @@ body {
 
 .brandDesc {
   grid-area: brandDesc;
-  padding: 0px 2em 0.5em 2em;
+  padding: 2em 2em 1em 2em;
   justify-self: center;
 }
-
-
-

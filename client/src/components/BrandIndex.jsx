@@ -38,7 +38,7 @@ class BrandIndex extends Component {
         {this.state.brands.map(brand => {
           return (
             <div className="single-brand" key={brand.id}>
-              <h4 className="brandName title is-3">{brand.name}</h4>
+              <h4 className="brandName title is-4">{brand.name}</h4>
               <div className="brand logoDiv">
                 <figure className="image is128x128">
                   <img src={brand.img_url} className="brandLogo" />

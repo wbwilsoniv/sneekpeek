@@ -106,34 +106,35 @@ class SneakerIndex extends Component {
         {this.state.sneakers.map(sneaker => {
           return (
             <div className="single-sneaker" key={sneaker.id}>
-              <h4 className="sneakerBrand">
+              <h4 className="title is-5 sneakerBrand">
                 {this.renderBrand(sneaker.brand_id)}
               </h4>
-              <h4 className="sneakerHeading">{sneaker.model}</h4>
-              <img
-                className="sneakerPic"
-                src={sneaker.pic_url}
-                alt="picture of sneaker"
-              />
+              <h4 className="title is-5 sneakerHeading">{sneaker.model}</h4>
+              <div className="sneakerPicDiv">
+                <img
+                  className="sneakerPic"
+                  src={sneaker.pic_url}
+                  alt="stock pic of sneaker"
+                />
+              </div>
               <span className="sneakerPrice">
-{sneaker.price}
-{' '}
-(USD)
-</span>
+                <strong>{sneaker.price}</strong>
+                <br />
+                (USD)
+              </span>
               <span className="sneakerRelease">
-                Release Date: 
-{' '}
-<br /> 
-{' '}
-{sneaker.release_date}
+                Release Date:
+                <br />
+                <strong>{sneaker.release_date}</strong>
               </span>
               <span className="editBtn">
                 <button
                   type="button"
+                  className="button is-primary is-outlined is-rounded edit"
                   value={sneaker.id}
                   onClick={e => this.toggleSneakerSelected(e)}
                 >
-                  Edit Sneaker
+                  Edit
                 </button>
               </span>
             </div>
