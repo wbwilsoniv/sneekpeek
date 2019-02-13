@@ -3,7 +3,8 @@
 // const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3001';
 
 const BASE_URL =
-  "https://salty-peak-85933.herokuapp.com" || "http://localhost:3001";
+  // "https://salty-peak-85933.herokuapp.com" ||
+  "http://localhost:3001";
 
 export function fetchSneakers() {
   return fetch(`${BASE_URL}/sneakers`)

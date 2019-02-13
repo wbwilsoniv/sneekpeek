@@ -90,8 +90,8 @@ class SneakerIndex extends Component {
   }
 
   render() {
-    let sneakers = [this.state.sneakers];
-    let sneakerSelected = this.state.sneakerSelected;
+    const sneakers = [this.state.sneakers];
+    const sneakerSelected = this.state.sneakerSelected;
     if (sneakerSelected === true) {
       return (
         <EditSneaker
@@ -100,40 +100,47 @@ class SneakerIndex extends Component {
           delete={this.deleteSneaker}
         />
       );
-    } 
-      return (
-        <div className="sneakerContainer">
-          {this.state.sneakers.map(sneaker => {
-            return (
-              <div className="single-sneaker" key={sneaker.id}>
-                <h4 className="sneakerBrand">
-                  {this.renderBrand(sneaker.brand_id)}
-                </h4>
-                <h4 className="sneakerHeading">{sneaker.model}</h4>
-                <img
-                  className="sneakerPic"
-                  src={sneaker.pic_url}
-                  alt="picture of sneaker"
-                />
-                <span className="sneakerPrice">${sneaker.price} (USD)</span>
-                <span className="sneakerRelease">
-                  Release Date: <br /> {sneaker.release_date}
-                </span>
-                <span className="editBtn">
-                  <button
-                    type="button"
-                    value={sneaker.id}
-                    onClick={e => this.toggleSneakerSelected(e)}
-                  >
-                    Edit Sneaker
-                  </button>
-                </span>
-              </div>
-            );
-          })}
-        </div>
-      );
-    
+    }
+    return (
+      <div className="sneakerContainer">
+        {this.state.sneakers.map(sneaker => {
+          return (
+            <div className="single-sneaker" key={sneaker.id}>
+              <h4 className="sneakerBrand">
+                {this.renderBrand(sneaker.brand_id)}
+              </h4>
+              <h4 className="sneakerHeading">{sneaker.model}</h4>
+              <img
+                className="sneakerPic"
+                src={sneaker.pic_url}
+                alt="picture of sneaker"
+              />
+              <span className="sneakerPrice">
+{sneaker.price}
+{' '}
+(USD)
+</span>
+              <span className="sneakerRelease">
+                Release Date: 
+{' '}
+<br /> 
+{' '}
+{sneaker.release_date}
+              </span>
+              <span className="editBtn">
+                <button
+                  type="button"
+                  value={sneaker.id}
+                  onClick={e => this.toggleSneakerSelected(e)}
+                >
+                  Edit Sneaker
+                </button>
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    );
   }
 }
 

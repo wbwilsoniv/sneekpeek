@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import axios from 'axios';
-import { fetchBrands } from "./../services/api";
+import { fetchBrands } from "../services/api";
 import Loader from "./Loader";
 
 class BrandIndex extends Component {
@@ -32,27 +32,34 @@ class BrandIndex extends Component {
   render() {
     if (this.state.isLoading) {
       return <Loader />;
-    } else {
-      return (
-        <div className="brandsIndex-container">
-          {this.state.brands.map(brand => {
-            return (
-              <div className="single-brand" key={brand.id}>
-                <h4 className="brandName title is-3">{brand.name}</h4>
-                <div className="brand logoDiv">
-                    <figure class="image is128x128">
-                    <img src={brand.pic_url} className="brandLogo" />
-                    </figure>
-                </div>
-                    <p className="brandHq"><strong>HQ: </strong> {brand.hq}</p>
-                    <p className="brandFounded"><strong>Founded:</strong> {brand.founded}</p>
-                    <p className="brandDesc">{brand.about}</p>
-              </div>
-            );
-          })}
-        </div>
-      );
     }
+    return (
+      <div className="brandsIndex-container">
+        {this.state.brands.map(brand => {
+          return (
+            <div className="single-brand" key={brand.id}>
+              <h4 className="brandName title is-3">{brand.name}</h4>
+              <div className="brand logoDiv">
+                <figure className="image is128x128">
+                  <img src={brand.img_url} className="brandLogo" />
+                </figure>
+              </div>
+              <p className="brandHq">
+                <strong>HQ: </strong> 
+{' '}
+{brand.hq}
+              </p>
+              <p className="brandFounded">
+                <strong>Founded:</strong> 
+{' '}
+{brand.founded}
+              </p>
+              <p className="brandDesc">{brand.about}</p>
+            </div>
+          );
+        })}
+      </div>
+    );
   }
 }
 
