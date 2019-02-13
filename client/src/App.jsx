@@ -12,10 +12,6 @@ import CreateSneaker from "./components/CreateSneaker";
 import EditSneaker from "./components/EditSneaker";
 import Header from "./components/Header";
 import Loader from "./components/Loader";
-// import axios from 'axios';
-// import ViewContainer from './components/ViewContainer';
-import SneakerDetails from "./components/SneakerDetails";
-import NavButtons from "./components/NavButtons";
 
 class App extends Component {
   constructor(props) {
@@ -30,12 +26,11 @@ class App extends Component {
     };
     this.createSneaker = this.createSneaker.bind(this);
     this.updateSneaker = this.updateSneaker.bind(this);
-    // this.getSneaker = this.getSneaker.bind(this);
     this.deleteSneaker = this.deleteSneaker.bind(this);
-    this.handleAddSneaker = this.handleAddSneaker.bind(this);
-    this.handleBrandClick = this.handleBrandClick.bind(this);
-    this.handleSneakersClick = this.handleSneakersClick.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
+    this.showAddSneaker = this.showAddSneaker.bind(this);
+    this.showBrandClick = this.showBrandClick.bind(this);
+    this.showSneakersClick = this.showSneakersClick.bind(this);
+    this.showEdit = this.showEdit.bind(this);
   }
 
   componentDidMount() {
@@ -62,17 +57,6 @@ class App extends Component {
     });
   }
 
-  // Get Sneaker function
-  // getSneaker(id) {
-  //   axios.get(`http://localhost:3001/sneakers/${id}.json`)
-  //   .then(data => {
-  //     this.setState({
-  //       sneakerToEdit: data
-  //     })
-  //   })
-  //   .catch(err => console.log(err))
-  // }
-
   // Delete Sneaker function
   deleteSneaker(id) {
     deleteSneaker(id).then(data => {
@@ -98,45 +82,48 @@ class App extends Component {
   }
 
   // Click handler to change current view to Sneakers
-  handleSneakersClick() {
+  showSneakersClick() {
     this.setState({
       currentView: "Sneaker Index"
     });
   }
 
   // Click handler to change current view to Brands
-  handleBrandClick() {
+  showBrandClick() {
     this.setState({
       currentView: "Brand Index"
     });
   }
 
   // click handler to change current view to Add New
-  handleAddSneaker() {
+  showAddSneaker() {
     this.setState({
       currentView: "Add New"
     });
   }
 
   // click handler to change current view to Edit
-  handleEdit() {
+  showEdit() {
     this.setState({
       currentView: "Edit"
     });
   }
 
   viewController() {
-    const { currentView } = this.state;
-    if (this.state.isLoading) {
-      return <Loader />;
+    const { currentView, isLoading, brands, sneakers } = this.state;
+
+    if (isLoading) {
+      return (
+        <div className="container">
+          <Loader />
+        </div>
+      );
     }
     switch (currentView) {
       case "Sneaker Index":
-        return <SneakerIndex sneakers={this.state.sneakers} />;
-        break;
+        return <SneakerIndex sneakers={sneakers} />;
       case "Brand Index":
-        return <BrandIndex brands={this.state.brands} />;
-        break;
+        return <BrandIndex brands={brands} />;
       case "Add New":
         return (
           <CreateSneaker
@@ -150,7 +137,6 @@ class App extends Component {
             handleChange={this.handleChange}
           />
         );
-        break;
       case "Edit":
         return (
           <EditSneaker
@@ -165,9 +151,8 @@ class App extends Component {
             onSubmit={this.updateSneaker}
           />
         );
-        break;
       default:
-        return <SneakerIndex sneakers={this.state.sneakers} />;
+        return <SneakerIndex sneakers={sneakers} />;
     }
   }
 
@@ -177,9 +162,9 @@ class App extends Component {
         <Header />
         {/* <NavButtons handleAddSneaker={this.handleAddSneaker}/> */}
         <div className="navBtnDiv">
-          <h4 onClick={this.handleSneakersClick}>SNEAKERS</h4>
-          <h4 onClick={this.handleBrandClick}>BRANDS</h4>
-          <h4 onClick={this.handleAddSneaker}>ADD SNEAKER</h4>
+          <div onClick={this.showSneakersClick}>SNEAKERS</div>
+          <div onClick={this.showBrandClick}>BRANDS</div>
+          <div onClick={this.showAddSneaker}>ADD SNEAKER</div>
         </div>
         {this.viewController()}
       </div>

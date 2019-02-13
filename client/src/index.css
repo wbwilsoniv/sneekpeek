@@ -44,11 +44,12 @@ body {
   box-shadow: 3px 3px 1px rgba(14, 14, 14, 0.1);
 }
 
-.navBtnDiv h4 {
+.navBtnDiv div {
   /* width: 100px;
-  height: 100px; */
+    height: 100px; */
   margin: auto;
   font-weight: 700;
+  border: none;
 }
 
 .sneakerContainer {
@@ -149,86 +150,6 @@ body {
 .createLabel {
   text-align: left;
 }
-/* .createSneakerFormDiv form {
-  display: grid;
-  padding: 20px;
-  line-height: 145%;
-  grid-template-areas: "modelLabel modelInput" "priceLabel priceInput" "releaseLabel releaseInput" "brandLabel brand_id_select" "picLabel picInput" ". btns";
-}
-
-.modelLabel {
-  grid-area: modelLabel;
-  margin: auto;
-  padding: 10px;
-  max-width: 20vw;
-}
-
-.modelInput {
-  grid-area: modelInput;
-  margin: auto;
-  padding: 10px;
-  max-width: 30vw;
-}
-
-.priceLabel {
-  grid-area: priceLabel;
-  margin: auto;
-  padding: 10px;
-  max-width: 20vw;
-}
-
-.priceInput {
-  grid-area: priceInput;
-  margin: auto;
-  padding: 10px;
-  max-width: 30vw;
-}
-
-.releaseInput {
-  grid-area: releaseInput;
-  margin: auto;
-  padding: 10px;
-  max-width: 30vw;
-}
-
-.brandLabel {
-  grid-area: brandLabel;
-  padding: 10px;
-  margin: auto;
-}
-
-.brand_id_select {
-  grid-area: brand_id_select;
-  margin: auto;
-  padding: 10px;
-  max-width: 30vw;
-}
-
-.releaseLabel {
-  grid-area: releaseLabel;
-  margin: auto;
-  padding: 10px;
-}
-
-.picLabel {
-  grid-area: picLabel;
-  margin: auto;
-  padding: 10px;
-}
-
-.picInput {
-  grid-area: picInput;
-  margin: auto;
-  padding: 10px;
-  max-width: 30vw;
-}
-
-.btns {
-  grid-area: btns;
-  display: flex;
-  padding: 20px 40px 0px 0px;
-  justify-content: space-evenly;
-} */
 
 .saveBtn {
   justify-self: end;

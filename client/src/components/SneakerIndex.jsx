@@ -77,13 +77,10 @@ class SneakerIndex extends Component {
     switch (brand_id) {
       case 1:
         return "Adidas";
-        break;
       case 2:
         return "Jordan";
-        break;
       case 3:
         return "Nike";
-        break;
       default:
         return null;
     }
@@ -113,7 +110,7 @@ class SneakerIndex extends Component {
               <div className="sneakerPicDiv">
                 <img
                   className="sneakerPic"
-                  src={sneaker.pic_url}
+                  src={`${sneaker.pic_url}`}
                   alt="stock pic of sneaker"
                 />
               </div>

@@ -58,7 +58,7 @@ class EditSneaker extends Component {
             />
             <label className="priceLabel">Price:</label>
             <input
-              type="number"
+              type="text"
               className="priceInput"
               required="required"
               value={this.state.price}
